@@ -3,21 +3,35 @@
 <head>
   <meta charset="utf-8">
   
-  <title>jothon&#39;s blog</title>
+  <title>weblogic漏洞复现 | jothon&#39;s blog</title>
 
   <!-- keywords -->
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="变强一点点">
-<meta property="og:type" content="website">
-<meta property="og:title" content="jothon&#39;s blog">
-<meta property="og:url" content="https://jothon.github.io/index.html">
+  <meta name="description" content="weblogic简介： WebLogic是美国Oracle公司出品的一个application server，确切的说是一个基于JAVAEE架构的中间件，WebLogic是用于开发、集成、部署和管理大型分布式Web应用、网络应用和数据库应用的Java应用服务器。将Java的动态功能和Java Enterprise标准的安全性引入大型网络应用的开发、集成、部署和管理之中  初始页面  这里推荐一个批">
+<meta property="og:type" content="article">
+<meta property="og:title" content="weblogic漏洞复现">
+<meta property="og:url" content="https://jothon.github.io/2024/07/21/weblogic%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/index.html">
 <meta property="og:site_name" content="jothon&#39;s blog">
-<meta property="og:description" content="变强一点点">
+<meta property="og:description" content="weblogic简介： WebLogic是美国Oracle公司出品的一个application server，确切的说是一个基于JAVAEE架构的中间件，WebLogic是用于开发、集成、部署和管理大型分布式Web应用、网络应用和数据库应用的Java应用服务器。将Java的动态功能和Java Enterprise标准的安全性引入大型网络应用的开发、集成、部署和管理之中  初始页面  这里推荐一个批">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://jothon.github.io/img/1721567330384-14.png">
+<meta property="og:image" content="https://jothon.github.io/img/1721567330382-4.png">
+<meta property="og:image" content="https://jothon.github.io/img/1721567330383-5.png">
+<meta property="og:image" content="https://jothon.github.io/img/1721567330383-6.png">
+<meta property="og:image" content="https://jothon.github.io/img/1721567330383-7.png">
+<meta property="og:image" content="https://jothon.github.io/img/1721567330383-8.png">
+<meta property="og:image" content="https://jothon.github.io/img/1721567330383-9.png">
+<meta property="og:image" content="https://jothon.github.io/img/1721567330383-10.png">
+<meta property="og:image" content="https://jothon.github.io/img/1721567330384-11.png">
+<meta property="og:image" content="https://jothon.github.io/img/1721567330384-12.png">
+<meta property="og:image" content="https://jothon.github.io/img/1721567330384-13.png">
+<meta property="article:published_time" content="2024-07-21T13:07:08.000Z">
+<meta property="article:modified_time" content="2024-07-21T13:11:18.294Z">
 <meta property="article:author" content="jothon">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jothon.github.io/img/1721567330384-14.png">
   
     <link rel="alternative" href="/atom.xml" title="jothon&#39;s blog" type="application/atom+xml">
   
@@ -170,9 +184,7 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap">
-  
-    <article id="post-weblogic漏洞复现" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-weblogic漏洞复现" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
       <a href="/2024/07/21/weblogic%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/" class="article-date">
@@ -188,15 +200,21 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2024/07/21/weblogic%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/">
-        weblogic漏洞复现
-        
-      </a>
+    <h1 class="article-title" itemprop="name">
+      weblogic漏洞复现
+      
     </h1>
   
 
       </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
       
     
     <div class="article-entry" itemprop="articleBody">
@@ -239,17 +257,19 @@
       
     </div>
     
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-    
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2024/07/21/DASCTF/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">DASCTF</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
   
 </article>
 
@@ -258,159 +278,6 @@
 
 
 
-
-  
-    <article id="post-DASCTF" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2024/07/21/DASCTF/" class="article-date">
-  	<time datetime="2024-07-21T11:59:37.000Z" itemprop="datePublished">2024-07-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2024/07/21/DASCTF/">
-        DASCTF
-        
-      </a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="png-master"><a href="#png-master" class="headerlink" title="png_master"></a>png_master</h3><p>part1：010发现文件末尾有base64，</p>
-<p>![](img&#x2F;屏幕截图 2024-07-21 202136.png)</p>
-<p>cyberchef解密得</p>
-<p>flag1:DASCTF{2fd9e9ff-e27</p>
-<p>part2：stegsolve里发现</p>
-<p>![](img&#x2F;屏幕截图 2024-07-21 202637.png)</p>
-<p>flag2：d-5405-c5f5-</p>
-<p>part3：检查一下pngIDAT块的信息</p>
-<p>![](img&#x2F;屏幕截图 2024-07-21 204324.png)</p>
-<p>发现长度为3394的模块异常</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-WKCTF" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2024/07/21/WKCTF/" class="article-date">
-  	<time datetime="2024-07-21T09:09:12.000Z" itemprop="datePublished">2024-07-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2024/07/21/WKCTF/">
-        WKCTF
-        
-      </a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <span id="more"></span>
-
-<h3 id="Signin"><a href="#Signin" class="headerlink" title="Signin"></a>Signin</h3><p>twinhex编码解码，得到base64编码，从格式看出是图⽚转了base64，于是⽤在线Base64转图⽚恢复图⽚，是个⼆维码，扫描得到要发送WKCTF2024到公众号获取flag。</p>
-<h3 id="小z的社交网络"><a href="#小z的社交网络" class="headerlink" title="小z的社交网络"></a>小z的社交网络</h3><p>题目显示的是AES的ecb加密方式，这里给的是一张ppm图片，图片格式已经损坏 ，根据ElectronicColoringBook可以对其进行恢复</p>
-<p><img src="/img/1721553107561-4.png" alt="img"></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python ElectronicColoringBook.py <span class="built_in">id</span>.ppm --blocksize=<span class="number">3</span> -p <span class="number">3</span> -o <span class="number">10</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="/img/1721553107560-1.png" alt="img"></p>
-<p>得知其账号</p>
-<p>d3d3LnppbWFibHVlLmxpZmU&#x3D; </p>
-<p><img src="/img/1721553107560-2.png" alt="img"></p>
-<p>继续在微博⾥找，可以看到有微博说明了密码是⼥朋友⽣⽇，再在下⼀条可以看到他⼥朋友的⼩红书 </p>
-<p>图⽚⽔印，根据⽔印找到其账号，然后在个⼈简介找到⼀个base58编码，解密发现是qq，访问qq可以 </p>
-<p>看到⽣⽇20000917，那么就可以解开博客了。博客是个提⽰，提⽰要去找github账号。  </p>
-<p><a target="_blank" rel="noopener" href="https://github.com/BeBetterCoder/WKCTF%EF%BC%8C%E5%8F%AF%E4%BB%A5%E5%8F%91%E7%8E%B0%E8%BF%99%E9%87%8C%E4%BB%96%E8%BF%9B%E8%A1%8C%E5%88%A0%E9%99%A4%E4%BA%86flag.zip">https://github.com/BeBetterCoder/WKCTF，可以发现这里他进行删除了flag.zip</a></p>
-<p><img src="/img/1721553107560-3.png" alt="img"></p>
-<p>4.根据博客的域名等信息去git搜索ZimaBlue可以找到其账号，有个库叫做WKCTF，在⾥⾯只有 </p>
-<p>readme，但是在commit⾥可以看到之前删除的⽂件，找到flag.swp，通过在linux下 vim -r FLAG可恢 </p>
-<p>复⽂件。 </p>
-<h3 id="不套是你的谎言"><a href="#不套是你的谎言" class="headerlink" title="不套是你的谎言"></a>不套是你的谎言</h3><p>附件就一个txt文件，如果做过python逆向的话可以看出这个是pyc的magic头。每一个magic头对应相应的python小版本。因为没有别的信息，因此考虑先把每个hex转成python小版本试试看。关于py版本和magic的关系网上可以找到，reverse过程的脚本如下：</p>
-<p>如果取每个python小版本的数字那刚好就是0-9，因此考虑这是十进制。连起来转int再转bytes可以看出是zip文件。这个zip是伪加密，因此改一下两处标志位可以正常解压。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">reverse_magic</span>(<span class="params">magic_number</span>):</span><br><span class="line">    tmp = <span class="built_in">int</span>(magic_number[<span class="number">2</span>:],<span class="number">16</span>)</span><br><span class="line">    tmp = long_to_bytes(tmp)</span><br><span class="line">    number = <span class="built_in">int</span>.from_bytes(tmp[:<span class="number">2</span>],<span class="string">&#x27;little&#x27;</span>)</span><br><span class="line">    <span class="keyword">return</span> number</span><br><span class="line"></span><br><span class="line">PYTHON_MAGIC = &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Python 3</span></span><br><span class="line">    <span class="number">3000</span>: (<span class="number">3</span>, <span class="number">0</span>),</span><br><span class="line">    <span class="number">3010</span>: (<span class="number">3</span>, <span class="number">0</span>),</span><br><span class="line">    <span class="number">3020</span>: (<span class="number">3</span>, <span class="number">0</span>),</span><br><span class="line">    <span class="number">3030</span>: (<span class="number">3</span>, <span class="number">0</span>),</span><br><span class="line">    <span class="number">3040</span>: (<span class="number">3</span>, <span class="number">0</span>),</span><br><span class="line">    <span class="number">3050</span>: (<span class="number">3</span>, <span class="number">0</span>),</span><br><span class="line">    <span class="number">3060</span>: (<span class="number">3</span>, <span class="number">0</span>),</span><br><span class="line">    <span class="number">3061</span>: (<span class="number">3</span>, <span class="number">0</span>),</span><br><span class="line">    <span class="number">3071</span>: (<span class="number">3</span>, <span class="number">0</span>),</span><br><span class="line">    <span class="number">3081</span>: (<span class="number">3</span>, <span class="number">0</span>),</span><br><span class="line">    <span class="number">3091</span>: (<span class="number">3</span>, <span class="number">0</span>),</span><br><span class="line">    <span class="number">3101</span>: (<span class="number">3</span>, <span class="number">0</span>),</span><br><span class="line">    <span class="number">3103</span>: (<span class="number">3</span>, <span class="number">0</span>),</span><br><span class="line">    <span class="number">3111</span>: (<span class="number">3</span>, <span class="number">0</span>),  <span class="comment"># a4</span></span><br><span class="line">    <span class="number">3131</span>: (<span class="number">3</span>, <span class="number">0</span>),  <span class="comment"># a5</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># Python 3.1</span></span><br><span class="line">    <span class="number">3141</span>: (<span class="number">3</span>, <span class="number">1</span>),  <span class="comment"># a0</span></span><br><span class="line">    <span class="number">3151</span>: (<span class="number">3</span>, <span class="number">1</span>),  <span class="comment"># a0</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># Python 3.2</span></span><br><span class="line">    <span class="number">3160</span>: (<span class="number">3</span>, <span class="number">2</span>),  <span class="comment"># a0</span></span><br><span class="line">    <span class="number">3170</span>: (<span class="number">3</span>, <span class="number">2</span>),  <span class="comment"># a1</span></span><br><span class="line">    <span class="number">3180</span>: (<span class="number">3</span>, <span class="number">2</span>),  <span class="comment"># a2</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># Python 3.3</span></span><br><span class="line">    <span class="number">3190</span>: (<span class="number">3</span>, <span class="number">3</span>),  <span class="comment"># a0</span></span><br><span class="line">    <span class="number">3200</span>: (<span class="number">3</span>, <span class="number">3</span>),  <span class="comment"># a0</span></span><br><span class="line">    <span class="number">3220</span>: (<span class="number">3</span>, <span class="number">3</span>),  <span class="comment"># a1</span></span><br><span class="line">    <span class="number">3230</span>: (<span class="number">3</span>, <span class="number">3</span>),  <span class="comment"># a4</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># Python 3.4</span></span><br><span class="line">    <span class="number">3250</span>: (<span class="number">3</span>, <span class="number">4</span>),  <span class="comment"># a1</span></span><br><span class="line">    <span class="number">3260</span>: (<span class="number">3</span>, <span class="number">4</span>),  <span class="comment"># a1</span></span><br><span class="line">    <span class="number">3270</span>: (<span class="number">3</span>, <span class="number">4</span>),  <span class="comment"># a1</span></span><br><span class="line">    <span class="number">3280</span>: (<span class="number">3</span>, <span class="number">4</span>),  <span class="comment"># a1</span></span><br><span class="line">    <span class="number">3290</span>: (<span class="number">3</span>, <span class="number">4</span>),  <span class="comment"># a4</span></span><br><span class="line">    <span class="number">3300</span>: (<span class="number">3</span>, <span class="number">4</span>),  <span class="comment"># a4</span></span><br><span class="line">    <span class="number">3310</span>: (<span class="number">3</span>, <span class="number">4</span>),  <span class="comment"># rc2</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># Python 3.5</span></span><br><span class="line">    <span class="number">3320</span>: (<span class="number">3</span>, <span class="number">5</span>),  <span class="comment"># a0</span></span><br><span class="line">    <span class="number">3330</span>: (<span class="number">3</span>, <span class="number">5</span>),  <span class="comment"># b1</span></span><br><span class="line">    <span class="number">3340</span>: (<span class="number">3</span>, <span class="number">5</span>),  <span class="comment"># b2</span></span><br><span class="line">    <span class="number">3350</span>: (<span class="number">3</span>, <span class="number">5</span>),  <span class="comment"># b2</span></span><br><span class="line">    <span class="number">3351</span>: (<span class="number">3</span>, <span class="number">5</span>),  <span class="comment"># 3.5.2</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># Python 3.6</span></span><br><span class="line">    <span class="number">3360</span>: (<span class="number">3</span>, <span class="number">6</span>),  <span class="comment"># a0</span></span><br><span class="line">    <span class="number">3361</span>: (<span class="number">3</span>, <span class="number">6</span>),  <span class="comment"># a0</span></span><br><span class="line">    <span class="number">3370</span>: (<span class="number">3</span>, <span class="number">6</span>),  <span class="comment"># a1</span></span><br><span class="line">    <span class="number">3371</span>: (<span class="number">3</span>, <span class="number">6</span>),  <span class="comment"># a1</span></span><br><span class="line">    <span class="number">3372</span>: (<span class="number">3</span>, <span class="number">6</span>),  <span class="comment"># a1</span></span><br><span class="line">    <span class="number">3373</span>: (<span class="number">3</span>, <span class="number">6</span>),  <span class="comment"># b1</span></span><br><span class="line">    <span class="number">3375</span>: (<span class="number">3</span>, <span class="number">6</span>),  <span class="comment"># b1</span></span><br><span class="line">    <span class="number">3376</span>: (<span class="number">3</span>, <span class="number">6</span>),  <span class="comment"># b1</span></span><br><span class="line">    <span class="number">3377</span>: (<span class="number">3</span>, <span class="number">6</span>),  <span class="comment"># b1</span></span><br><span class="line">    <span class="number">3378</span>: (<span class="number">3</span>, <span class="number">6</span>),  <span class="comment"># b2</span></span><br><span class="line">    <span class="number">3379</span>: (<span class="number">3</span>, <span class="number">6</span>),  <span class="comment"># rc1</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># Python 3.7</span></span><br><span class="line">    <span class="number">3390</span>: (<span class="number">3</span>, <span class="number">7</span>),  <span class="comment"># a1</span></span><br><span class="line">    <span class="number">3391</span>: (<span class="number">3</span>, <span class="number">7</span>),  <span class="comment"># a2</span></span><br><span class="line">    <span class="number">3392</span>: (<span class="number">3</span>, <span class="number">7</span>),  <span class="comment"># a4</span></span><br><span class="line">    <span class="number">3393</span>: (<span class="number">3</span>, <span class="number">7</span>),  <span class="comment"># b1</span></span><br><span class="line">    <span class="number">3394</span>: (<span class="number">3</span>, <span class="number">7</span>),  <span class="comment"># b5</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># Python 3.8</span></span><br><span class="line">    <span class="number">3400</span>: (<span class="number">3</span>, <span class="number">8</span>),  <span class="comment"># a1</span></span><br><span class="line">    <span class="number">3401</span>: (<span class="number">3</span>, <span class="number">8</span>),  <span class="comment"># a1</span></span><br><span class="line">    <span class="number">3410</span>: (<span class="number">3</span>, <span class="number">8</span>),  <span class="comment"># a1</span></span><br><span class="line">    <span class="number">3411</span>: (<span class="number">3</span>, <span class="number">8</span>),  <span class="comment"># b2</span></span><br><span class="line">    <span class="number">3412</span>: (<span class="number">3</span>, <span class="number">8</span>),  <span class="comment"># b2</span></span><br><span class="line">    <span class="number">3413</span>: (<span class="number">3</span>, <span class="number">8</span>),  <span class="comment"># b4</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># Python 3.9</span></span><br><span class="line">    <span class="number">3420</span>: (<span class="number">3</span>, <span class="number">9</span>),  <span class="comment"># a0</span></span><br><span class="line">    <span class="number">3421</span>: (<span class="number">3</span>, <span class="number">9</span>),  <span class="comment"># a0</span></span><br><span class="line">    <span class="number">3422</span>: (<span class="number">3</span>, <span class="number">9</span>),  <span class="comment"># a0</span></span><br><span class="line">    <span class="number">3423</span>: (<span class="number">3</span>, <span class="number">9</span>),  <span class="comment"># a2</span></span><br><span class="line">    <span class="number">3424</span>: (<span class="number">3</span>, <span class="number">9</span>),  <span class="comment"># a2</span></span><br><span class="line">    <span class="number">3425</span>: (<span class="number">3</span>, <span class="number">9</span>),  <span class="comment"># a2</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">res = <span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;magic.txt&#x27;</span>,<span class="string">&#x27;r&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">807</span>):</span><br><span class="line">        magic_number = f.readline().strip()</span><br><span class="line">        number = reverse_magic(magic_number)</span><br><span class="line">        res = res + <span class="built_in">str</span>(PYTHON_MAGIC[number][<span class="number">1</span>])</span><br><span class="line"><span class="built_in">print</span>(res)</span><br><span class="line"><span class="built_in">print</span>(long_to_bytes(<span class="built_in">int</span>(res)))</span><br></pre></td></tr></table></figure>
-
-<p>打开得到的信息是flask-session，需要去解密，并且提示了密钥为弱口令。github上可以找到工具flask-session-cookie-manager，因为要爆破，所以搞个shell脚本：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#！/bin/bash</span></span><br><span class="line"> <span class="keyword">while</span> read line</span><br><span class="line"> do</span><br><span class="line">  echo $line</span><br><span class="line">  python3  flask_session_cookie_manager3.py decode -s $line -c <span class="string">&#x27;eyJhbGdvcml0aG0iOiJkZXMiLCJmbGFnIjoiVW5BbVBWWTRhdCt2bkJqellPNytUZEZSMmZEYnhScytqQzdsMWt2b2hUMFp4clBDOEJUTWJBPT0ifQ.ZkyTwA.KPlAnhfBH8qMClLyoP6yboafHyw&#x27;</span></span><br><span class="line"> done &lt;  top1000.txt</span><br></pre></td></tr></table></figure>
-
-<p>爆破得到：</p>
-<p>12312312</p>
-<p>{‘algorithm’: ‘des’, ‘flag’: ‘UnAmPVY4at+vnBjzYO7+TdFR2fDbxRs+jC7l1kvohT0ZxrPC8BTMbA&#x3D;&#x3D;’}</p>
-<p>显然在线网站解des即可，密钥就是12312312</p>
-<p>在线网站：<a target="_blank" rel="noopener" href="https://the-x.cn/cryptography/Des.aspx">DES在线解密 DES在线加密 des hex - The X 在线工具 (the-x.cn)</a></p>
-<p>WKCTF{N0w_u_Know_th3_fl4sk_Sess1on}</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-  
 </div>
       <footer id="footer">
   <div class="outer">
@@ -436,8 +303,8 @@
 		fancybox: true,
 		mathjax: false,
 		animate: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
