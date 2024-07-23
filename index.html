@@ -172,6 +172,167 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-文件包含" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2024/07/23/%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/" class="article-date">
+  	<time datetime="2024-07-23T02:08:22.000Z" itemprop="datePublished">2024-07-23</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2024/07/23/%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/">
+        文件包含
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-隐写一" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2024/07/23/%E9%9A%90%E5%86%99%E4%B8%80/" class="article-date">
+  	<time datetime="2024-07-23T01:51:15.000Z" itemprop="datePublished">2024-07-23</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2024/07/23/%E9%9A%90%E5%86%99%E4%B8%80/">
+        隐写一
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="jpg类隐写"><a href="#jpg类隐写" class="headerlink" title="jpg类隐写"></a>jpg类隐写</h2><h3 id="jphide隐写"><a href="#jphide隐写" class="headerlink" title="jphide隐写"></a>jphide隐写</h3><p>010里发现假的flag</p>
+<p><img src="/img/1721699493768-127.png" alt="img"></p>
+<p>5a+G56CBMTIz</p>
+<p><img src="/img/1721699493768-128.png" alt="img"></p>
+<p>密码123，有密码的jpg隐写，steghide,JPHS.</p>
+<p>用stegdetect检查一下，发现是jphide隐写</p>
+<p><img src="/img/1721699493768-129.png" alt="img"></p>
+<p>JPHS</p>
+<p><img src="/img/1721699493768-130.png" alt="img"></p>
+<p>FSCTF{huang_duduanwangu}</p>
+<h3 id="outguss隐写"><a href="#outguss隐写" class="headerlink" title="outguss隐写"></a>outguss隐写</h3><p><img src="/img/1721699493768-131.jpeg" alt="img"></p>
+<p>查看属性：<strong>公正民主公正文明公正和谐</strong></p>
+<p>社会主义核心价值观解密</p>
+<p>密码为abc</p>
+<p>采用outguess解密</p>
+<p>outguess安装                                                              <a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_58199719/article/details/123692511?spm=1001.2014.3001.5501">https://blog.csdn.net/m0_58199719/article/details/123692511?spm=1001.2014.3001.5501</a></p>
+<p><img src="/img/1721699493768-132.png" alt="img"></p>
+<p>outguess使用</p>
+<p>注意：<strong>outguess -k ‘密码’ -r 文件名 flag.txt</strong></p>
+<p>ACTF{gue33_Gu3Ss!2020}</p>
+<h3 id="F5-steganography隐写"><a href="#F5-steganography隐写" class="headerlink" title="F5-steganography隐写"></a>F5-steganography隐写</h3><p>刷新过的图片</p>
+<p><img src="/img/1721699493768-133.jpeg" alt="img"></p>
+<p>010里面没有有效信息，binwalk无结果，这题涉及F5-steganography隐写</p>
+<p>工具安装参考博客   <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_30627381/article/details/99264894">https://blog.csdn.net/weixin_30627381/article/details/99264894</a></p>
+<p><img src="/img/1721699493768-134.png" alt="img"></p>
+<p>进入F5-steganography-master文件夹，在空白处 ctrl+shift+鼠标右键-&gt;在此处打开命令窗口</p>
+<p>在cmd中输入命令：</p>
+<p>java Extract 文件的绝对路径 -p 密码</p>
+<p><strong>注意：将图片放入F5-steganography-master目录中，会生成一个output.txt</strong></p>
+<p><img src="/img/1721699493768-135.png" alt="img"></p>
+<p>开头为PK,将txt改为zip即可出现flag</p>
+<p>flag{96efd0a2037d06f34199e921079778ee}</p>
+<h3 id="steghide隐写"><a href="#steghide隐写" class="headerlink" title="steghide隐写"></a>steghide隐写</h3><p>根据题目提示原神七七在哪里</p>
+<p><img src="/img/1721699493768-136.png" alt="img"></p>
+<p>密码为liyue</p>
+<p>kali里用steghide里查看</p>
+<p>命令是steghide extract -sf 文件名 -p 密码</p>
+<p><img src="/img/1721699493768-137.png" alt="img"></p>
+<p><img src="/img/1721699493768-138.png" alt="img"></p>
+<p>发现零宽字符隐写</p>
+<p><img src="/img/1721699493768-139.png" alt="img"></p>
+<p>这是一个错误的flag，但是可能是字母的大小不一样，编写脚本，得出所有大小写的可能性，并生成dic.txt.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> itertools</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_character_combinations</span>(<span class="params">word</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;获取单词中每个字符的大小写组合可能性&quot;&quot;&quot;</span></span><br><span class="line">    character_combinations = &#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> char <span class="keyword">in</span> word:</span><br><span class="line">        combinations = <span class="built_in">list</span>(<span class="built_in">set</span>([<span class="string">&quot;&quot;</span>.join(comb) <span class="keyword">for</span> comb <span class="keyword">in</span> itertools.product(*<span class="built_in">zip</span>(char.lower(), char.upper()))]))</span><br><span class="line">        character_combinations[char] = combinations</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> character_combinations</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">generate_variants</span>(<span class="params">word, character_combinations</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;生成变形字符串&quot;&quot;&quot;</span></span><br><span class="line">    variants = <span class="built_in">set</span>()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> combination <span class="keyword">in</span> itertools.product(*[character_combinations[char] <span class="keyword">for</span> char <span class="keyword">in</span> word]):</span><br><span class="line">        variant = <span class="string">&quot;&quot;</span>.join(combination)</span><br><span class="line">        <span class="keyword">if</span> variant != word:</span><br><span class="line">            variants.add(variant)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> variants</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">save_to_file</span>(<span class="params">variants, filename</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;将变形字符串保存到文件中&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(filename, <span class="string">&#x27;w&#x27;</span>) <span class="keyword">as</span> file:</span><br><span class="line">        <span class="keyword">for</span> variant <span class="keyword">in</span> variants:</span><br><span class="line">            file.write(<span class="string">f&quot;flag&#123;&#123;<span class="subst">&#123;variant&#125;</span>&#125;&#125;\n&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 单词 JPeG_Is_IntErEsting</span></span><br><span class="line">word = <span class="string">&quot;JPeG_Is_IntErEsting&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取字符大小写组合可能性</span></span><br><span class="line">character_combinations = get_character_combinations(word)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成变形字符串</span></span><br><span class="line">variants = generate_variants(word, character_combinations)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 保存到文件</span></span><br><span class="line">save_to_file(variants, <span class="string">&quot;dic.txt&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;保存成功！&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>进行字典爆破</p>
+<p><img src="/img/1721699493768-140.png" alt="img"></p>
+<p>得到密码flag{JPeG_Is_IntErEsting}</p>
+<p>kali里zsteg发现base，zsteg主要查看lsb,,这里的base不全，继续返回stegsolve里看msb</p>
+<p><img src="/img/1721699493768-141.png" alt="img"></p>
+<p><img src="/img/1721699493769-142.png" alt="img"></p>
+<p>将HYNUCTF{This_is_a_fake_flag}删掉</p>
+<p><img src="/img/1721699493769-143.png" alt="img"></p>
+<p>得到HYNUCTF{RgB_or_Lsb_may_Y0u_knnoww?}</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-内存取证" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -569,6 +730,9 @@
 <p><img src="/img/1721568082484-38.png" alt="img"></p>
 <p>flag2：d-5405-c5f5-</p>
 <p>part3：检查一下pngIDAT块的信息</p>
+<p>关于IDAT隐写就在此处介绍一下</p>
+<p>IDAT有<strong>固定的长度</strong>，正常的<strong>PNG图片</strong>只有最后一个IDAT块的长度是比其他的要短的，在此处很明显的58674是最后一个IDAT模块，但是后面仍然多了一个IDAT,这是多余的，可以用binwalk检测一下，其实我们可以发现他其实是有2个zlib，有几个zlib代表有几张png图片，可以浅浅的这样理解一下</p>
+<p>一般解题思路：将最后的一个IDAT模块解压提取出来，因为这里有出题人所隐藏的信息，看了网上一个题的解题思路是将其IDAT的数据提取出来转二进制，进行二维码绘图，扫码即可得flag，在这里就不再演示了</p>
 <p><img src="/img/1721568082485-39.png" alt="img"></p>
 <p>发现长度为3394的模块异常</p>
 

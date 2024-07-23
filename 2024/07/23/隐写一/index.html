@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>隐写一 | jothon&#39;s blog</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="jpg类隐写jphide隐写010里发现假的flag  5a+G56CBMTIz  密码123，有密码的jpg隐写，steghide,JPHS. 用stegdetect检查一下，发现是jphide隐写  JPHS  FSCTF{huang_duduanwangu} outguss隐写 查看属性：公正民主公正文明公正和谐 社会主义核心价值观解密 密码为abc 采用outguess解密 outgues">
+<meta property="og:type" content="article">
+<meta property="og:title" content="隐写一">
+<meta property="og:url" content="https://jothon.github.io/2024/07/23/%E9%9A%90%E5%86%99%E4%B8%80/index.html">
+<meta property="og:site_name" content="jothon&#39;s blog">
+<meta property="og:description" content="jpg类隐写jphide隐写010里发现假的flag  5a+G56CBMTIz  密码123，有密码的jpg隐写，steghide,JPHS. 用stegdetect检查一下，发现是jphide隐写  JPHS  FSCTF{huang_duduanwangu} outguss隐写 查看属性：公正民主公正文明公正和谐 社会主义核心价值观解密 密码为abc 采用outguess解密 outgues">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://jothon.github.io/img/1721699493768-127.png">
+<meta property="og:image" content="https://jothon.github.io/img/1721699493768-128.png">
+<meta property="og:image" content="https://jothon.github.io/img/1721699493768-129.png">
+<meta property="og:image" content="https://jothon.github.io/img/1721699493768-130.png">
+<meta property="og:image" content="https://jothon.github.io/img/1721699493768-131.jpeg">
+<meta property="og:image" content="https://jothon.github.io/img/1721699493768-132.png">
+<meta property="og:image" content="https://jothon.github.io/img/1721699493768-133.jpeg">
+<meta property="og:image" content="https://jothon.github.io/img/1721699493768-134.png">
+<meta property="og:image" content="https://jothon.github.io/img/1721699493768-135.png">
+<meta property="og:image" content="https://jothon.github.io/img/1721699493768-136.png">
+<meta property="og:image" content="https://jothon.github.io/img/1721699493768-137.png">
+<meta property="og:image" content="https://jothon.github.io/img/1721699493768-138.png">
+<meta property="og:image" content="https://jothon.github.io/img/1721699493768-139.png">
+<meta property="og:image" content="https://jothon.github.io/img/1721699493768-140.png">
+<meta property="og:image" content="https://jothon.github.io/img/1721699493768-141.png">
+<meta property="og:image" content="https://jothon.github.io/img/1721699493769-142.png">
+<meta property="og:image" content="https://jothon.github.io/img/1721699493769-143.png">
+<meta property="article:published_time" content="2024-07-23T01:51:15.000Z">
+<meta property="article:modified_time" content="2024-07-23T01:52:31.406Z">
+<meta property="article:author" content="jothon">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jothon.github.io/img/1721699493768-127.png">
+  
+    <link rel="alternative" href="/atom.xml" title="jothon&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.ico">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+
+  
+<script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+
+  
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+				<img lazy-src="[object Object]" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+			<h1 class="header-author"><a href="/">jothon</a></h1>
+		</hgroup>
+
+		
+			<p class="header-subtitle"></p>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">Home</a></li>
+				        
+							<li><a href="/archives">Archives</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="half-header-menu">
+						<a class="hide">Home</a>
+						<a>Tags</a>
+						<a>Links</a>
+						<a>About</a>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+						<!-- music -->
+						
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://benstar6666.github.io/">Benstar</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/">github</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://zixyd.github.io/">zlxyd</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://muxiahuo.github.io/">Glory</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://gu0f3n.github.io/">Gu0f3n</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://kugulu.github.io/">kugulu</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://shadbh.github.io/">shadbh</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://backk0m.github.io/">backk0m</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://n2ryx.github.io/">n2ryx</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://zlsf-zl.github.io/">zlsf</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.yuque.com/sickle-ffnce">Sickle</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">I&#39;m a developer.</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide"></h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="[object Object]" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author"></h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">Home</a></li>
+		        
+					<li><a href="/archives">Archives</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-隐写一" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2024/07/23/%E9%9A%90%E5%86%99%E4%B8%80/" class="article-date">
+  	<time datetime="2024-07-23T01:51:15.000Z" itemprop="datePublished">2024-07-23</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      隐写一
+      
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="jpg类隐写"><a href="#jpg类隐写" class="headerlink" title="jpg类隐写"></a>jpg类隐写</h2><h3 id="jphide隐写"><a href="#jphide隐写" class="headerlink" title="jphide隐写"></a>jphide隐写</h3><p>010里发现假的flag</p>
+<p><img src="/img/1721699493768-127.png" alt="img"></p>
+<p>5a+G56CBMTIz</p>
+<p><img src="/img/1721699493768-128.png" alt="img"></p>
+<p>密码123，有密码的jpg隐写，steghide,JPHS.</p>
+<p>用stegdetect检查一下，发现是jphide隐写</p>
+<p><img src="/img/1721699493768-129.png" alt="img"></p>
+<p>JPHS</p>
+<p><img src="/img/1721699493768-130.png" alt="img"></p>
+<p>FSCTF{huang_duduanwangu}</p>
+<h3 id="outguss隐写"><a href="#outguss隐写" class="headerlink" title="outguss隐写"></a>outguss隐写</h3><p><img src="/img/1721699493768-131.jpeg" alt="img"></p>
+<p>查看属性：<strong>公正民主公正文明公正和谐</strong></p>
+<p>社会主义核心价值观解密</p>
+<p>密码为abc</p>
+<p>采用outguess解密</p>
+<p>outguess安装                                                              <a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_58199719/article/details/123692511?spm=1001.2014.3001.5501">https://blog.csdn.net/m0_58199719/article/details/123692511?spm=1001.2014.3001.5501</a></p>
+<p><img src="/img/1721699493768-132.png" alt="img"></p>
+<p>outguess使用</p>
+<p>注意：<strong>outguess -k ‘密码’ -r 文件名 flag.txt</strong></p>
+<p>ACTF{gue33_Gu3Ss!2020}</p>
+<h3 id="F5-steganography隐写"><a href="#F5-steganography隐写" class="headerlink" title="F5-steganography隐写"></a>F5-steganography隐写</h3><p>刷新过的图片</p>
+<p><img src="/img/1721699493768-133.jpeg" alt="img"></p>
+<p>010里面没有有效信息，binwalk无结果，这题涉及F5-steganography隐写</p>
+<p>工具安装参考博客   <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_30627381/article/details/99264894">https://blog.csdn.net/weixin_30627381/article/details/99264894</a></p>
+<p><img src="/img/1721699493768-134.png" alt="img"></p>
+<p>进入F5-steganography-master文件夹，在空白处 ctrl+shift+鼠标右键-&gt;在此处打开命令窗口</p>
+<p>在cmd中输入命令：</p>
+<p>java Extract 文件的绝对路径 -p 密码</p>
+<p><strong>注意：将图片放入F5-steganography-master目录中，会生成一个output.txt</strong></p>
+<p><img src="/img/1721699493768-135.png" alt="img"></p>
+<p>开头为PK,将txt改为zip即可出现flag</p>
+<p>flag{96efd0a2037d06f34199e921079778ee}</p>
+<h3 id="steghide隐写"><a href="#steghide隐写" class="headerlink" title="steghide隐写"></a>steghide隐写</h3><p>根据题目提示原神七七在哪里</p>
+<p><img src="/img/1721699493768-136.png" alt="img"></p>
+<p>密码为liyue</p>
+<p>kali里用steghide里查看</p>
+<p>命令是steghide extract -sf 文件名 -p 密码</p>
+<p><img src="/img/1721699493768-137.png" alt="img"></p>
+<p><img src="/img/1721699493768-138.png" alt="img"></p>
+<p>发现零宽字符隐写</p>
+<p><img src="/img/1721699493768-139.png" alt="img"></p>
+<p>这是一个错误的flag，但是可能是字母的大小不一样，编写脚本，得出所有大小写的可能性，并生成dic.txt.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> itertools</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_character_combinations</span>(<span class="params">word</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;获取单词中每个字符的大小写组合可能性&quot;&quot;&quot;</span></span><br><span class="line">    character_combinations = &#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> char <span class="keyword">in</span> word:</span><br><span class="line">        combinations = <span class="built_in">list</span>(<span class="built_in">set</span>([<span class="string">&quot;&quot;</span>.join(comb) <span class="keyword">for</span> comb <span class="keyword">in</span> itertools.product(*<span class="built_in">zip</span>(char.lower(), char.upper()))]))</span><br><span class="line">        character_combinations[char] = combinations</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> character_combinations</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">generate_variants</span>(<span class="params">word, character_combinations</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;生成变形字符串&quot;&quot;&quot;</span></span><br><span class="line">    variants = <span class="built_in">set</span>()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> combination <span class="keyword">in</span> itertools.product(*[character_combinations[char] <span class="keyword">for</span> char <span class="keyword">in</span> word]):</span><br><span class="line">        variant = <span class="string">&quot;&quot;</span>.join(combination)</span><br><span class="line">        <span class="keyword">if</span> variant != word:</span><br><span class="line">            variants.add(variant)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> variants</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">save_to_file</span>(<span class="params">variants, filename</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;将变形字符串保存到文件中&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(filename, <span class="string">&#x27;w&#x27;</span>) <span class="keyword">as</span> file:</span><br><span class="line">        <span class="keyword">for</span> variant <span class="keyword">in</span> variants:</span><br><span class="line">            file.write(<span class="string">f&quot;flag&#123;&#123;<span class="subst">&#123;variant&#125;</span>&#125;&#125;\n&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 单词 JPeG_Is_IntErEsting</span></span><br><span class="line">word = <span class="string">&quot;JPeG_Is_IntErEsting&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取字符大小写组合可能性</span></span><br><span class="line">character_combinations = get_character_combinations(word)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成变形字符串</span></span><br><span class="line">variants = generate_variants(word, character_combinations)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 保存到文件</span></span><br><span class="line">save_to_file(variants, <span class="string">&quot;dic.txt&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;保存成功！&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>进行字典爆破</p>
+<p><img src="/img/1721699493768-140.png" alt="img"></p>
+<p>得到密码flag{JPeG_Is_IntErEsting}</p>
+<p>kali里zsteg发现base，zsteg主要查看lsb,,这里的base不全，继续返回stegsolve里看msb</p>
+<p><img src="/img/1721699493768-141.png" alt="img"></p>
+<p><img src="/img/1721699493769-142.png" alt="img"></p>
+<p>将HYNUCTF{This_is_a_fake_flag}删掉</p>
+<p><img src="/img/1721699493769-143.png" alt="img"></p>
+<p>得到HYNUCTF{RgB_or_Lsb_may_Y0u_knnoww?}</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2024/07/23/%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          文件包含
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/07/22/%E5%86%85%E5%AD%98%E5%8F%96%E8%AF%81/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">内存取证</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2024 jothon
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/preccrep/hexo-theme-jelly" target="_blank">Jelly</a>
+        </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+
+<script src="/js/main.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
