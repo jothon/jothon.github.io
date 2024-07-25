@@ -9,12 +9,12 @@
   
   <title>weblogic漏洞复现 | jothon&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="weblogic简介： WebLogic是美国Oracle公司出品的一个application server，确切的说是一个基于JAVAEE架构的中间件，WebLogic是用于开发、集成、部署和管理大型分布式Web应用、网络应用和数据库应用的Java应用服务器。将Java的动态功能和Java Enterprise标准的安全性引入大型网络应用的开发、集成、部署和管理之中  初始页面  这里推荐一个批">
+  <meta name="description" content="weblogic简介： WebLogic是美国Oracle公司出品的一个application server，确切的说是一个基于JAVAEE架构的中间件，WebLogic是用于开发、集成、部署和管理大型分布式Web应用、网络应用和数据库应用的Java应用服务器。将Java的动态功能和Java Enterprise标准的安全性引入大型网络应用的开发、集成、部署和管理之中  初始页面  这里推荐一">
 <meta property="og:type" content="article">
 <meta property="og:title" content="weblogic漏洞复现">
 <meta property="og:url" content="https://jothon.github.io/2024/07/21/weblogic%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/index.html">
 <meta property="og:site_name" content="jothon&#39;s blog">
-<meta property="og:description" content="weblogic简介： WebLogic是美国Oracle公司出品的一个application server，确切的说是一个基于JAVAEE架构的中间件，WebLogic是用于开发、集成、部署和管理大型分布式Web应用、网络应用和数据库应用的Java应用服务器。将Java的动态功能和Java Enterprise标准的安全性引入大型网络应用的开发、集成、部署和管理之中  初始页面  这里推荐一个批">
+<meta property="og:description" content="weblogic简介： WebLogic是美国Oracle公司出品的一个application server，确切的说是一个基于JAVAEE架构的中间件，WebLogic是用于开发、集成、部署和管理大型分布式Web应用、网络应用和数据库应用的Java应用服务器。将Java的动态功能和Java Enterprise标准的安全性引入大型网络应用的开发、集成、部署和管理之中  初始页面  这里推荐一">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://jothon.github.io/img/1721567330384-14.png">
 <meta property="og:image" content="https://jothon.github.io/img/1721567330382-4.png">
@@ -28,7 +28,7 @@
 <meta property="og:image" content="https://jothon.github.io/img/1721567330384-12.png">
 <meta property="og:image" content="https://jothon.github.io/img/1721567330384-13.png">
 <meta property="article:published_time" content="2024-07-21T13:07:08.000Z">
-<meta property="article:modified_time" content="2024-07-21T13:28:00.798Z">
+<meta property="article:modified_time" content="2024-07-25T13:42:49.287Z">
 <meta property="article:author" content="jothon">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://jothon.github.io/img/1721567330384-14.png">
@@ -324,7 +324,9 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h3 id="weblogic"><a href="#weblogic" class="headerlink" title="weblogic"></a>weblogic</h3><p>简介：</p>
+        <span id="more"></span>
+
+<h3 id="weblogic"><a href="#weblogic" class="headerlink" title="weblogic"></a>weblogic</h3><p>简介：</p>
 <p>WebLogic是美国<a target="_blank" rel="noopener" href="http://lib.csdn.net/base/oracle">Oracle</a>公司出品的一个application server，确切的说是一个基于JAVAEE<a target="_blank" rel="noopener" href="http://lib.csdn.net/base/architecture">架构</a>的中间件，WebLogic是用于开发、集成、部署和管理大型分布式Web应用、网络应用和<a target="_blank" rel="noopener" href="http://lib.csdn.net/base/mysql">数据库</a>应用的<a target="_blank" rel="noopener" href="http://lib.csdn.net/base/java">Java</a>应用服务器。将Java的动态功能和<a target="_blank" rel="noopener" href="http://lib.csdn.net/base/java">Java </a>Enterprise标准的安全性引入大型网络应用的开发、集成、部署和管理之中</p>
 <p><img src="/img/1721567330384-14.png" alt="img"></p>
 <p>初始页面</p>
@@ -371,7 +373,7 @@
         <p><span>本文标题:</span><a  href="/2024/07/21/weblogic%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/">weblogic漏洞复现</a></p>
         <p><span>文章作者:</span><a  href="/" title="访问  的个人博客"></a></p>
         <p><span>发布时间:</span>2024年07月21日 - 21时07分</p>
-        <p><span>最后更新:</span>2024年07月21日 - 21时28分</p>
+        <p><span>最后更新:</span>2024年07月25日 - 21时42分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2024/07/21/weblogic%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/" title="weblogic漏洞复现">https://jothon.github.io/2024/07/21/weblogic%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/</a>
             <span class="copy-path" data-clipboard-text="原文: https://jothon.github.io/2024/07/21/weblogic%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/　　作者: " title=""></span>

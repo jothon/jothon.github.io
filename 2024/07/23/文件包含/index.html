@@ -9,12 +9,12 @@
   
   <title>文件包含 | jothon&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言misc学习先放一段时间，感觉没进步了，总结一下misc知识点然后开始进击web，之前做了一些web题目，一直没有系统的整理和学习，趁着暑假有时间，那就直接开始吧！ 简介文件包含漏洞是指客户端（一般为浏览器）用户通过输入控制动态包含在服务器的文件，从而导致恶意代码的执行及敏感信息的泄露，主要包括本地文件包含LFI和远程文件包含RFI两种形式 基础常见的文件包含漏洞的形式 1234&lt;?ph">
+  <meta name="description" content="前言misc学习先放一段时间，感觉没进步了，总结一下misc知识点然后开始进击web，之前做了一些web题目，一直没有系统的整理和学习，趁着暑假有时间，那就直接开始吧！ 简介文件包含漏洞是指客户端（一般为浏览器）用户通过输入控制动态包含在服务器的文件，从而导致恶意代码的执行及敏感信息的泄露，主要包括本地文件包含LFI和远程文件包含RFI两种形式 基础常见的文件包含漏洞的形式 1234&lt;?">
 <meta property="og:type" content="article">
 <meta property="og:title" content="文件包含">
 <meta property="og:url" content="https://jothon.github.io/2024/07/23/%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/index.html">
 <meta property="og:site_name" content="jothon&#39;s blog">
-<meta property="og:description" content="前言misc学习先放一段时间，感觉没进步了，总结一下misc知识点然后开始进击web，之前做了一些web题目，一直没有系统的整理和学习，趁着暑假有时间，那就直接开始吧！ 简介文件包含漏洞是指客户端（一般为浏览器）用户通过输入控制动态包含在服务器的文件，从而导致恶意代码的执行及敏感信息的泄露，主要包括本地文件包含LFI和远程文件包含RFI两种形式 基础常见的文件包含漏洞的形式 1234&lt;?ph">
+<meta property="og:description" content="前言misc学习先放一段时间，感觉没进步了，总结一下misc知识点然后开始进击web，之前做了一些web题目，一直没有系统的整理和学习，趁着暑假有时间，那就直接开始吧！ 简介文件包含漏洞是指客户端（一般为浏览器）用户通过输入控制动态包含在服务器的文件，从而导致恶意代码的执行及敏感信息的泄露，主要包括本地文件包含LFI和远程文件包含RFI两种形式 基础常见的文件包含漏洞的形式 1234&lt;?">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://jothon.github.io/img/1721784913663-13.png">
 <meta property="og:image" content="https://jothon.github.io/img/1721784913661-1.png">
@@ -30,7 +30,7 @@
 <meta property="og:image" content="https://jothon.github.io/img/1721784913662-11.png">
 <meta property="og:image" content="https://jothon.github.io/img/1721784913662-12.png">
 <meta property="article:published_time" content="2024-07-23T02:08:22.000Z">
-<meta property="article:modified_time" content="2024-07-24T01:39:37.245Z">
+<meta property="article:modified_time" content="2024-07-25T13:42:33.682Z">
 <meta property="article:author" content="jothon">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://jothon.github.io/img/1721784913663-13.png">
@@ -326,7 +326,9 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>misc学习先放一段时间，感觉没进步了，总结一下misc知识点然后开始进击web，之前做了一些web题目，一直没有系统的整理和学习，趁着暑假有时间，那就直接开始吧！</p>
+        <span id="more"></span>
+
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>misc学习先放一段时间，感觉没进步了，总结一下misc知识点然后开始进击web，之前做了一些web题目，一直没有系统的整理和学习，趁着暑假有时间，那就直接开始吧！</p>
 <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p><code>文件包含漏洞</code>是指客户端（一般为浏览器）用户通过输入控制动态包含在服务器的文件，从而导致恶意代码的执行及敏感信息的泄露，主要包括<code>本地文件包含LFI</code>和<code>远程文件包含RFI</code>两种形式</p>
 <h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><p>常见的文件包含漏洞的形式</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$a = @$_GET[<span class="string">&#x27;file&#x27;</span>];</span><br><span class="line">include $a;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
@@ -554,7 +556,7 @@
         <p><span>本文标题:</span><a  href="/2024/07/23/%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/">文件包含</a></p>
         <p><span>文章作者:</span><a  href="/" title="访问  的个人博客"></a></p>
         <p><span>发布时间:</span>2024年07月23日 - 10时08分</p>
-        <p><span>最后更新:</span>2024年07月24日 - 09时39分</p>
+        <p><span>最后更新:</span>2024年07月25日 - 21时42分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2024/07/23/%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/" title="文件包含">https://jothon.github.io/2024/07/23/%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/</a>
             <span class="copy-path" data-clipboard-text="原文: https://jothon.github.io/2024/07/23/%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/　　作者: " title=""></span>
