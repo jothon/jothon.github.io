@@ -2,6 +2,8 @@
 <html lang="zh-CN">
 
 
+<link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css">
+
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="文件包含, jothon&#39;s blog">
@@ -472,7 +474,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-07-28
+                    2024-07-29
                 </div>
                 
 
@@ -511,7 +513,9 @@
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>misc学习先放一段时间，感觉没进步了，总结一下misc知识点然后开始进击web，之前做了一些web题目，一直没有系统的整理和学习，趁着暑假有时间，那就直接开始吧！</p>
 <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p><code>文件包含漏洞</code>是指客户端（一般为浏览器）用户通过输入控制动态包含在服务器的文件，从而导致恶意代码的执行及敏感信息的泄露，主要包括<code>本地文件包含LFI</code>和<code>远程文件包含RFI</code>两种形式</p>
 <h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><p>常见的文件包含漏洞的形式</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$a = @$_GET[<span class="string">&#x27;file&#x27;</span>];</span><br><span class="line">include $a;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$a</span> = @<span class="variable">$_GET</span>[<span class="string">&#x27;file&#x27;</span>];</span><br><span class="line"><span class="keyword">include</span> <span class="variable">$a</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+
 
 <h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a><strong>目录</strong></h2><ul>
 <li>PHP伪协议利用</li>
@@ -557,7 +561,7 @@
 <p><code>include()/require()/include_once()/require_once()</code>参数可控的情况下</p>
 <p>如导入为非.php文件，则仍按照php语法进行解析，这是include()函数所决定的</p>
 <p>示例：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#1. file://[文件的绝对路径和文件名]</span></span><br><span class="line">http://127.0.0.1/include.php?file=file://C:\phpStudy\PHPTutorial\WWW\phpinfo.txt</span><br><span class="line"></span><br><span class="line"><span class="comment">#2. file://[文件的相对路径和文件名]</span></span><br><span class="line">http://127.0.0.1/include.php?file=./phpinfo.txt</span><br><span class="line"></span><br><span class="line"><span class="comment">#3. file://[网络路径和文件名]</span></span><br><span class="line">http://127.0.0.1/include.php?file=http://127.0.0.1/phpinfo.txt</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#1. file://[文件的绝对路径和文件名]</span><br><span class="line">http://127.0.0.1/include.php?file=file://C:\phpStudy\PHPTutorial\WWW\phpinfo.txt</span><br><span class="line"></span><br><span class="line">#2. file://[文件的相对路径和文件名]</span><br><span class="line">http://127.0.0.1/include.php?file=./phpinfo.txt</span><br><span class="line"></span><br><span class="line">#3. file://[网络路径和文件名]</span><br><span class="line">http://127.0.0.1/include.php?file=http://127.0.0.1/phpinfo.txt</span><br></pre></td></tr></table></figure>
 
 <h4 id="php-filter"><a href="#php-filter" class="headerlink" title="**php:&#x2F;&#x2F;**filter"></a>**php:&#x2F;&#x2F;**<strong>filter</strong></h4><blockquote>
 <p>利用<code>php://filter</code>查看源代码：</p>
@@ -1356,6 +1360,10 @@ $(function () {
     <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
     <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
     <script src="/js/matery.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.js"></script>
+    <script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/clipboard_use.js"></script>
+
 
     <!-- Baidu Analytics -->
 
