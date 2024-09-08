@@ -487,11 +487,11 @@
 <p>查看主机的ip(网段是192.168.5.0)</p>
 <p><img src="/img/1722475245414-2.png" alt="img"></p>
 <p>root下开启</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/network/interfaces</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line">vim /etc/network/interfaces</span><br></pre></td></tr></table></figure>
 
 <p><img src="/img/1722475245415-3.png" alt="img"></p>
 <p>这里的address,网关和掩码都设置成一个分段的，修改完成后:wq保存，然后重启网卡</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart networking</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line">systemctl restart networking</span><br></pre></td></tr></table></figure>
 
 <p>查看我们虚拟机ip：192.168.5.76</p>
 <p><img src="/img/1722475245415-4.png" alt="img"></p>
