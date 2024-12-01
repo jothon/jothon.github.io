@@ -4,6 +4,56 @@
   
     
     <entry>
+      <title>明文攻击</title>
+      <link href="/2024/11/30/%E6%98%8E%E6%96%87%E6%94%BB%E5%87%BB/"/>
+      <url>/2024/11/30/%E6%98%8E%E6%96%87%E6%94%BB%E5%87%BB/</url>
+      
+        <content type="html"><![CDATA[<h3 id="secrect-zip"><a href="#secrect-zip" class="headerlink" title="secrect.zip"></a>secrect.zip</h3><p>解题思路：明文攻击-&gt;字频统计</p><p>hint提示：软件：7-zip</p><p>我还是试试了bandzip，2345压缩，其实还是不行，使用360压缩即可，7-zip应该也行，不过没下，桀桀桀</p><p><img src="/img/1732528273759-2.png" alt="img"></p><p>解压之后为1.txt进行字频统计即可</p><p><img src="/img/1732528273759-1.png" alt="img"></p><p>flag{EdCvGyTr@95173}</p><h3 id="明文攻击"><a href="#明文攻击" class="headerlink" title="明文攻击"></a>明文攻击</h3><p>文件较大时，鉴于ARCHPR爆破时间一般不低于20分钟，所以一般不采用它进行明文攻击爆破</p><p>进行明文攻击时需要注意压缩算法不同，也会造成爆破失败</p><p>第二种解法：bkcrack进行爆破</p><p>bkcrack用法：</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bkcrack -L 1.zip   //列出条目名称和数据</span><br><span class="line">bkcrack -L E:\misc工具\bkcrack-1.6.1-win64\小明的日记本.zip</span><br></pre></td></tr></table></figure><p><img src="/img/image-20241125213551022.png" alt="image-20241125213551022"></p><p>bkcrack解出密钥：</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">bkcrack -C E:\misc工具\bkcrack-1.6.1-win64\小明的日记本.zip -c d.jpg -P d.zip -p d.jpg</span><br></pre></td></tr></table></figure><p><img src="/img/image-20241125214047596.png" alt="image-20241125214047596"></p><p>因此可以得出密钥是：de7fb7fe a8c68ae2 ddc4ba4b</p><p>到这里一般2步可以用ARCHPR来解，也可以用bkcrack来解,使用密钥解出，设置一个新的压缩包并将密码设置为kunkun</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">bkcrack -C E:\misc工具\bkcrack-1.6.1-win64\小明的日记本.zip -c d.jpg -k de7fb7fe a8c68ae2 ddc4ba4b -U kun.zip kunkun</span><br></pre></td></tr></table></figure><p>例题：</p><h3 id="谁偷吃了我的外卖【春秋杯】"><a href="#谁偷吃了我的外卖【春秋杯】" class="headerlink" title="谁偷吃了我的外卖【春秋杯】"></a>谁偷吃了我的外卖【春秋杯】</h3><p> 下载附件得</p><p><img src="/img/1732547950682-5.jpeg" alt="img"></p><p>binwalk尝试无果，选用foremost进行分离，得到压缩包</p><p><img src="/img/1732547950676-1.png" alt="img"></p><p>这里有许多外卖单及用户名</p><p><img src="/img/1732547950676-2.png" alt="img"></p><p>用户名中间的数据提取出来按照用户名顺序拼接起来，像是<code>base64</code>，但是<code>base64</code>的填充符号没有<code>-</code>，只有<code>+</code>、<code>/</code>，<code>+</code>这里有了，根据提示猜测把<code>-</code>替换成<code>/</code>，得到的解码是zip数据</p><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> zipfile</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> zipfile.ZipFile(<span class="string">&quot;C:\\Users\jiang\\Desktop\\外卖箱.zip&quot;</span>, <span class="string">&#x27;r&#x27;</span>) <span class="keyword">as</span> zf:</span><br><span class="line">    fileNameList = zf.namelist()</span><br><span class="line">    infoDict = &#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> fileName <span class="keyword">in</span> fileNameList:</span><br><span class="line">        matchedData = re.findall(<span class="string">r&#x27;\d&#123;1,&#125;_[a-zA-Z0-9-+=\/]&#123;4&#125;&#x27;</span>, fileName)</span><br><span class="line">        <span class="keyword">if</span> matchedData != []:</span><br><span class="line">            infoDict[matchedData[<span class="number">0</span>][<span class="number">0</span>:matchedData[<span class="number">0</span>].find(<span class="string">&#x27;_&#x27;</span>)]] = matchedData[<span class="number">0</span>][matchedData[<span class="number">0</span>].find(<span class="string">&#x27;_&#x27;</span>) + <span class="number">1</span>:]</span><br><span class="line">    content = <span class="string">&#x27;&#x27;</span></span><br><span class="line">    <span class="keyword">for</span> idx <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, <span class="number">10898</span> + <span class="number">1</span>):</span><br><span class="line">        content += infoDict[<span class="built_in">str</span>(idx)]</span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;C:\\Users\jiang\\Desktop\\data.zip&#x27;</span>, <span class="string">&#x27;wb&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    f.write(base64.b64decode(content.replace(<span class="string">&#x27;-&#x27;</span>, <span class="string">&#x27;/&#x27;</span>)))</span><br></pre></td></tr></table></figure><p>代码分析</p><p>解压缩一个名为”外卖箱.zip”的文件，并从中提取特定文件的内容。解压后的文件内容按照特定的命名规则进行提取，并存储在一个字典变量<code>infoDict</code>中。然后，通过循环遍历字典中的内容，将特定文件的内容以base64编码的形式写入一个名为”data.zip”的文件中</p><p>放入010里发现文件头缺失，补全文件头</p><p><img src="/img/1732547950676-3.png" alt="img"></p><p>此时得到flag1</p><p>🌟 flag{W1sh_y0u_AaaAaaaa🌟 </p><p>根据钥匙的提示，可以想到明文攻击</p><p><img src="/img/1732547950676-4.png" alt="img"></p><p>之后得到解密的压缩包</p><p>获取另一半flag</p><p>}9enruoj_FTC_1ufredn0w_aaaaaaa</p><p>逆序</p><p>aaaaaaa_w0nderfu1_CTF_journe9}</p><p>flag{W1sh_y0u_AaaAaaaaaaaaaaa_w0nderfu1_CTF_journe9}</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> misc </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> CTF </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>极客大挑战</title>
+      <link href="/2024/11/30/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98/"/>
+      <url>/2024/11/30/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98/</url>
+      
+        <content type="html"><![CDATA[<h2 id="ez-jpg"><a href="#ez-jpg" class="headerlink" title="ez_jpg"></a>ez_jpg</h2><p>base64解密，发现16进制逆序</p><p><img src="/img/image-20241123160643614.png" alt="image-20241123160643614"></p><p>jpg宽高修改，这里修改宽将02 80 02 20 改为02 80 02 80即可</p><p><img src="/img/image-20241123161029393.png" alt="image-20241123161029393"></p><p><img src="/img/download-1732349601955-2.jpg" alt="download"></p><h2 id="舔狗的觉醒"><a href="#舔狗的觉醒" class="headerlink" title="舔狗的觉醒"></a>舔狗的觉醒</h2><p>8位数字爆破</p><p><img src="/img/image-20241123161641715.png" alt="image-20241123161641715"></p><p>相邻的字节反转</p><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;byte-revenge.txt&quot;</span>, <span class="string">&quot;r&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    data = f.read().split()</span><br><span class="line"></span><br><span class="line">result =<span class="string">&quot;&quot;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> data:</span><br><span class="line">    res = i[::-<span class="number">1</span>]</span><br><span class="line">    result += res</span><br><span class="line"><span class="built_in">print</span>(result)</span><br><span class="line">swapped_data = [byte[::-<span class="number">1</span>] <span class="keyword">for</span> byte <span class="keyword">in</span> data]</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;1.txt&quot;</span>, <span class="string">&quot;w&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    f.write(<span class="string">&quot;&quot;</span>.join(result))</span><br></pre></td></tr></table></figure><p>保存为1.zip,打开之后有一个pdf文件,pdf转ppt移动图片即可</p><p><img src="/img/image-20241123163112890.png" alt="image-20241123163112890"></p><h2 id="Sercet-Of-Starven"><a href="#Sercet-Of-Starven" class="headerlink" title="Sercet Of Starven"></a>Sercet Of Starven</h2><p>NTLM协议</p><p>NTML 全称 <strong>New Technology LAN Manager</strong>，是微软提供的一组安全协议，用来认证用户身份。它是一个基于 质询响应 的协议，在验证用户的过程中不需要传输用户的明文密码</p><p>认证过程基于 质询&#x2F;响应 challenge&#x2F;response</p><p>解题思路：</p><p>过滤smb2，长度为401的包找到Challenge</p><p><img src="/img/image-20241123202144603.png" alt="image-20241123202144603"></p><p>Challenge:9a35e37a04717230</p><p><img src="/img/image-20241123202412107.png" alt="image-20241123202412107"></p><p>在长度为705的包中有response:189bf0b02d2f766af2242dc455ad4fe10101000000000000ca1f069a8a09db01980131a514a3d32d0000000002001e004400450053004b0054004f0050002d00510032004200390044004900410001001e004400450053004b0054004f0050002d00510032004200390044004900410004001e004400450053004b0054004f0050002d00510032004200390044004900410003001e004400450053004b0054004f0050002d00510032004200390044004900410007000800ca1f069a8a09db010600040002000000080030003000000000000000010000000020000044063d2e3ec53e332816d81a43ec5914e72ef2dc0599bfa08788e043eb523af80a001000000000000000000000000000000000000900240063006900660073002f003100390032002e003100360038002e00310031002e00320030000000000000000000</p><p>Username:Starven</p><p>Domain name:192.168.11.20</p><p>拼接NTML格式：（注意数据顺序和去掉重复顺序）</p><p>Starven::192.168.11.20:9a35e37a04717230:189bf0b02d2f766af2242dc455ad4fe1:0101000000000000ca1f069a8a09db01980131a514a3d32d0000000002001e004400450053004b0054004f0050002d00510032004200390044004900410001001e004400450053004b0054004f0050002d00510032004200390044004900410004001e004400450053004b0054004f0050002d00510032004200390044004900410003001e004400450053004b0054004f0050002d00510032004200390044004900410007000800ca1f069a8a09db010600040002000000080030003000000000000000010000000020000044063d2e3ec53e332816d81a43ec5914e72ef2dc0599bfa08788e043eb523af80a001000000000000000000000000000000000000900240063006900660073002f003100390032002e003100360038002e00310031002e00320030000000000000000000</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hashcat -O -a 0 -m 5600 starven.txt /usr/share/wordlists/rockyou.txt</span><br></pre></td></tr></table></figure><p><img src="/img/image-20241123211919342.png" alt="image-20241123211919342"></p><p>压缩包密码：spellorstarve</p><p>SYC{D0n7_spre0d_St@rven’s_s3crEt}</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 比赛复现 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> CTF </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>御网杯</title>
       <link href="/2024/09/22/%E5%BE%A1%E7%BD%91%E6%9D%AF/"/>
       <url>/2024/09/22/%E5%BE%A1%E7%BD%91%E6%9D%AF/</url>
@@ -11,6 +61,18 @@
         <content type="html"><![CDATA[<h2 id="misc"><a href="#misc" class="headerlink" title="misc"></a>misc</h2><h3 id="misc1"><a href="#misc1" class="headerlink" title="misc1"></a>misc1</h3><p>考察知识点:word隐写</p><p>wps打开，ctrl+A全选，调换颜色即可</p><p><img src="/img/image-20240922181239546.png" alt="image-20240922181239546"></p><p>flag{HNCTF9090AS9nbg87600hn77hn88}</p><h3 id="misc2"><a href="#misc2" class="headerlink" title="misc2"></a>misc2</h3><p>考察知识点</p><p>编码1：BrainFuck解码</p><p><img src="/img/image-20240922202913546.png" alt="image-20240922202913546"></p><p>编码2：JSFuck编码</p><p><img src="/img/image-20240922203024347.png" alt="image-20240922203024347"></p><p>编码3：ook解密</p><p>在线网址：[Brainfuck&#x2F;Ook! Obfuscation&#x2F;Encoding <a href="https://www.splitbrain.org/services/ook">splitbrain.org]</a></p><p><img src="/img/image-20240922203218375.png" alt="image-20240922203218375"></p><h3 id="misc3"><a href="#misc3" class="headerlink" title="misc3"></a>misc3</h3><p>分组字节流搜索flag,我们可以发现在长度为337，349，85的包里搜索到flag</p><p><img src="/img/image-20240922225311013.png" alt="image-20240922225311013"></p><p><img src="/img/image-20240922225334650.png" alt="image-20240922225334650"></p><p>提取其16进制，保存为压缩包，打开我们可以发现flag.txt和key</p><p>flag:</p><p>10004583275926070044326083910251708233320797779355779208703097816305188140191914132269450797</p><p>4e94dcdb6de87e65d263419ec45aec93e8a2e1d386b31fb804e0f02366df44dbe86a8a7c462d</p><p>key</p><p>5216294695211820293806247029887026154798297270637676463374801674229881314620340407569315152</p><p>28f8bdbc16de4850e05579acf33c8aa08ac3d9e6e3822b8c3081c04700eb25b88a08eb457550</p><p>转16进制进行XOR异或</p><p><img src="/img/image-20240926194610800.png" alt="image-20240926194610800"></p><p>flag{66526827ff3ba85e1444a0df4acbba93}</p><h3 id="misc4"><a href="#misc4" class="headerlink" title="misc4"></a>misc4</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&amp;#x39;&amp;#x33;&amp;#x36;&amp;#x35;&amp;#x34;&amp;#x34;&amp;#x61;&amp;#x35;&amp;#x35;&amp;#x33;&amp;#x31;&amp;#x34;&amp;#x61;&amp;#x37;&amp;#x65;&amp;#x34;&amp;#x33;&amp;#x33;&amp;#x39;&amp;#x35;&amp;#x34;&amp;#x35;&amp;#x66;&amp;#x34;&amp;#x37;&amp;#x37;&amp;#x37;&amp;#x36;&amp;#x61;&amp;#x36;&amp;#x65;&amp;#x34;&amp;#x31;&amp;#x33;&amp;#x31;&amp;#x35;&amp;#x61;&amp;#x37;&amp;#x64;&amp;#x34;&amp;#x31;&amp;#x33;&amp;#x32;&amp;#x35;&amp;#x37;&amp;#x34;&amp;#x33;&amp;#x35;&amp;#x37;&amp;#x35;&amp;#x36;&amp;#x35;&amp;#x35;&amp;#x34;&amp;#x35;&amp;#x35;&amp;#x62;&amp;#x34;&amp;#x34;&amp;#x37;&amp;#x38;&amp;#x35;&amp;#x31;&amp;#x36;&amp;#x61;&amp;#x36;&amp;#x35;&amp;#x33;&amp;#x37;&amp;#x34;&amp;#x31;&amp;#x36;</span><br></pre></td></tr></table></figure><p>很明显的一段unicode解码，随波逐流解码得</p><p><img src="/img/image-20240922203522270.png" alt="image-20240922203522270"></p><p>936544a55314a7e4339545f47776a6e41315a7d41325743575655455b4478516a6537416</p><p>逆序得：6147356a6158744b55455657534752314d7a51314e6a67774f5459334e7a41355a445639</p><p>16机制转ascii可得</p><p><img src="/img/image-20240922203708424.png" alt="image-20240922203708424"></p><p>aG5jaXtKUEVWSGR1MzQ1NjgwOTY3NzA5ZDV9</p><p>base64解密</p><p><img src="/img/image-20240922203747729.png" alt="image-20240922203747729"></p><p>hnci{JPEVHdu345680967709d5}</p><p>可以观察到hnci与flag之间h向后退了2格，根据f-&gt;h,l-&gt;n,a-&gt;c,g-&gt;i</p><p>我们可以得出flag</p><p>flag{HNCTFbs345680967709b5}</p>]]></content>
       
       
+      <categories>
+          
+          <category> misc </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> CTF </tag>
+            
+        </tags>
       
     </entry>
     
@@ -24,6 +86,18 @@
         <content type="html"><![CDATA[<h2 id="JWT漏洞分析"><a href="#JWT漏洞分析" class="headerlink" title="JWT漏洞分析"></a>JWT漏洞分析</h2><p>JWT认证攻击详细解答:<a href="https://www.cnblogs.com/backlion/p/16699442.html">https://www.cnblogs.com/backlion/p/16699442.html</a></p><p>在线利用工具：<a href="https://jwt.io/">https://jwt.io/</a></p><p>jwt工具：<a href="https://github.com/ticarpi/jwt_tool">https://github.com/ticarpi/jwt_tool</a></p><p>基础使用：python3 jwt_tool.py jwt</p><p>要运行特定类型的漏洞利用，您需要选择 eXploit (-X) 选项并选择漏洞（此处使用“a”表示<em>alg:none</em>漏洞利用）：</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">python3 jwt_tool.py eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsb2dpbiI6InRpY2FycGkifQ.aqNCvShlNT9jBFTPBpHDbt2gBB1MyHiisSDdp8SQvgw -X a</span><br></pre></td></tr></table></figure><h3 id="1-JWT的简介"><a href="#1-JWT的简介" class="headerlink" title="1.JWT的简介"></a>1.JWT的简介</h3><p>JWT全称为json web token 将json对象作为载体进行传输信息，通常用于身份认证和信息交换。JWT可以使用密钥(HMAC算法)或者使用RSA或ECDSA的公钥&#x2F;私钥对自身进行签名</p><h3 id="2-JWT的格式"><a href="#2-JWT的格式" class="headerlink" title="2:JWT的格式"></a>2:JWT的格式</h3><p>每当用户访问站点中的资源时，对应的请求头认证默认为Authorization:jwt JWT令牌认证以eyj开头</p><p>JWT的数据头部如下：</p><p>JWT的数据分为三部分：头部(header),有效载荷(Payload),签名(Signature)</p><p>三个部分以英文逗号隔开，JWT的内容以base64进行编码</p><p>下面举个例子：</p><p>(1):头部信息包含了JWT的配置方面，例如签名算法(alg)，令牌类型(JWT)和加密算法(alg)或者算法使用的密钥文件</p><p>Head:eyJraWQiOiJrZXlzLzNjM2MyZWExYzNmMTEzZjY0OWRjOTM4OWRkNzFiODUxIiwidHlwIjoiSldUIiwiYWxnIjoiUlMyNTYifQ</p><p>{“kid”:”keys&#x2F;3c3c2ea1c3f113f649dc9389dd71b851”,”typ”:”JWT”,”alg”:”RS256”}</p><p>(2):有效载荷</p><p>有效载荷用于存储用户的数据，例如用户名(test123)</p><p>payload：eyJzdWIiOiJkdWJoZTEyMyJ9</p><p>{“sub”:”dubhe123”}</p><p>(3):签名</p><p>Signature 需要使用编码后的header和payload以及我们提供的一个密钥，然后使用header中指定的签名算法通常是RS256(RSA非对称加密和私钥签名)和HS256(HMAC SHA256对称加密)算法进行签名，签名的作用是保证jwt没有被篡改过</p><p>下面是一个用HS256生成Jw&#x3D;WT的代码例子</p><p>HMACSHA256(base64Encode(header) + “.” + base64urlEncode(payload),secret)</p><p>Signature:</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">XicP4pq_WIF2bAVtPmAlWIvAUad_eeBhDOQe2MXwHrE8a7930LlfQq1lFqBs0wLMhht6Z9BQXBRos9jvQ7eumEUFWFYKRZfu9POTOEE79wxNwTxGdHc5VidvrwiytkRMtGKIyhbv68duFPI68Qnzh0z0M7t5LkEDvNivfOrxdxwb7IQsAuenKzF67Z6UArbZE8odNZAA9IYaWHeh1b4OUG0OPM3saXYSG-Q1R5X_5nlWogHHYwy2kD9v4nk1BaQ5kHJIl8B3Nc77gVIIVvzI9N_klPcX5xsuw9SsUfr9d99kaKyMUSXxeiZVM-7os_dw3ttz2f-TJSNI0DYprHHLFw</span><br></pre></td></tr></table></figure><h3 id="3-JWT常见安全问题"><a href="#3-JWT常见安全问题" class="headerlink" title="3:JWT常见安全问题"></a>3:JWT常见安全问题</h3><p>1：签名算法可被修改为none(CVE-2015-9235)</p><p>JWT支持算法设定为“None”,如果“alg”字段设为“None”,那么签名会被置空，这样的任何token都是有效的</p><p>2：未校验签名</p><p>某些服务端并未校验JWT签名，可以尝试修改payload后然后直接请求token或者直接删除signature再次请求查看其是否还有效。</p><p>通过在线工具jwt.io修改payload数据</p><p>3：JWKS公钥 注入 ——伪造密钥(CVE-2018-0114)</p><p>创建一个新的 RSA 证书对，注入一个 JWKS 文件，攻击者可以使用新的私钥对令牌进行签名，将公钥包含在令牌中，然后让服务使用该密钥来验证令牌</p><p>攻击者可以通过以下方法来伪造JWT：删除原始签名，向标头添加新的公钥，然后使用与该公钥关联的私钥进行签名。</p><p>4：空签名(CVE-2020-28042)</p><p>从令牌末尾删除签名</p><p>5：敏感信息泄露</p><p>JWT的header头base64解码可泄露敏感数据如密钥文件或者密码或者注入漏洞</p><p>6：KID参数漏洞</p><h3 id="NSSRound-13-Basic-flask-jwt"><a href="#NSSRound-13-Basic-flask-jwt" class="headerlink" title="[NSSRound#13 Basic]flask?jwt?"></a>[NSSRound#13 Basic]flask?jwt?</h3><p>考察知识点：session伪造，jwt</p><p>使用工具：<a href="https://github.com/noraj/flask-session-cookie-manager">GitHub - noraj&#x2F;flask-session-cookie-manager: :cookie: Flask Session Cookie Decoder&#x2F;Encoder</a></p><p>随意注册一个账号</p><p>抓包：访问&#x2F;getFlag</p><p><img src="/img/image-20240920105914385.png" alt="image-20240920105914385"></p><p><img src="/img/image-20240920110101258.png" alt="image-20240920110101258"></p><p>提取session值</p><p>.eJwlzjEOwzAIQNG7eO6AAWPIZSJjsNo1aaaqd2-kjl_6w_uUfR15Psv2Pq58lP0VZSuC5Gsmtt4xMCOl1xhZHWtt6jLdnSUYUj0npw6JWEbWpDYcpnFvAGQO1IXrnL3nUEQU6oPuEhFuKIq2KjuBNGOdYJA5KMoNuc48_hos3x-4sS5U.Zuzjow.09lgm1OqoVaAVLe76LXT-TkqWnA</p><p>kali自带python模块较为完善，可以在kali里面运行</p><p><img src="/img/image-20240920111524083.png" alt="image-20240920111524083"></p><p>重新注册一下获得的第二个session值经过伪造后可以猜测其id值为3，所以我们大胆猜测admin的id值为1</p><p>原始数据：</p><p>‘{“_fresh”:true,”_id”:”623bfce25772d2ede671dae1b21158b6cbbb46d40e8bec4e8a6ddf93956152a98d1580039b037641cc77ea8222637a3c776664526829f14b3065948c090eea3d”,”_user_id”:”2”}’</p><p>小写t变成T ,id:后加个空格，不然会报错</p><p>修改数据：</p><p>“{‘_fresh’:True, ‘_id’: ‘623bfce25772d2ede671dae1b21158b6cbbb46d40e8bec4e8a6ddf93956152a98d1580039b037641cc77ea8222637a3c776664526829f14b3065948c090eea3d’, ‘_user_id’: ‘1’}”</p><p>F12查看到密码为：th3f1askisfunny</p><p><img src="/img/image-20240920114313425.png" alt="image-20240920114313425"></p><p><img src="/img/image-20240920112609288.png" alt="image-20240920112609288"></p><p>修改session值获取flag</p><p><img src="/img/image-20240920112540806.png" alt="image-20240920112540806"></p><p>NSSCTF{216857c5-8aaa-4cfe-9990-4081f74efb4e}</p><h3 id="NSSRound-13-Basic-flask-jwt-hard"><a href="#NSSRound-13-Basic-flask-jwt-hard" class="headerlink" title="[NSSRound#13 Basic]flask?jwt?(hard)"></a>[NSSRound#13 Basic]flask?jwt?(hard)</h3><p>第一题的pro版，区别在于开个debug来找到密钥，其他形式和第一题无区别，注册访问&#x2F;wor路由即可拿到本题所需要的密钥</p><p><img src="/img/image-20240920201459394.png" alt="image-20240920201459394"></p><p>访问其&#x2F;wor路由，给出一个时间，可知session里包含time，我们尝试修改session的值，获取key的值，眼睛不好可以复制到记事本里看：hardgam3_C0u1d_u_f1ndM3????</p><p><img src="/img/image-20240920203659645.png" alt="image-20240920203659645"></p><p><img src="/img/image-20240920203837691.png" alt="image-20240920203837691"></p><p>找到密钥之后就像第一题一样解决之后就行</p>]]></content>
       
       
+      <categories>
+          
+          <category> web </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 漏洞复现 </tag>
+            
+        </tags>
       
     </entry>
     
@@ -44,6 +118,12 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> 渗透测试 </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -62,6 +142,12 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> CTF </tag>
+            
+        </tags>
       
     </entry>
     
@@ -82,6 +168,12 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> CTF </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -100,6 +192,12 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> linux </tag>
+            
+        </tags>
       
     </entry>
     
@@ -120,6 +218,12 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> web </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -139,12 +243,18 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> web </tag>
+            
+        </tags>
+      
     </entry>
     
     
     
     <entry>
-      <title>隐写一</title>
+      <title>隐写</title>
       <link href="/2024/07/23/%E9%9A%90%E5%86%99/"/>
       <url>/2024/07/23/%E9%9A%90%E5%86%99/</url>
       
@@ -157,6 +267,12 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> misc </tag>
+            
+        </tags>
       
     </entry>
     
@@ -177,6 +293,12 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> misc </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -195,6 +317,12 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> misc </tag>
+            
+        </tags>
       
     </entry>
     
@@ -215,6 +343,12 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> 漏洞复现 </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -234,6 +368,12 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> CTF </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -252,6 +392,12 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> CTF </tag>
+            
+        </tags>
       
     </entry>
     
